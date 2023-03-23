@@ -1,7 +1,5 @@
 # GymTime
 
-# Football-Fan-Experience
-
 ## Date 2/08/23
 
 ### By: Michael Durando
