@@ -2,6 +2,7 @@ const express = require('express')
 const routes = require('./routes')
 const AuthRouter = require('./routes/AuthRouter')
 const UserRouter = require('./routes/UserRouter')
+const WorkoutRouter = require('./routes/WorkoutRouter')
 const db = require('./db')
 
 // require() imports and middleware here ^ ///////
@@ -14,9 +15,10 @@ app.use(express.json())
 
 // app.use() middleware here ^ ///////////////////
 
-app.use('/api', routes)
+app.use('/', routes)
 app.use('/auth', AuthRouter)
 app.use('/user', UserRouter)
+app.use('/workout', WorkoutRouter)
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 

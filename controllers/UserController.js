@@ -10,11 +10,14 @@ const GetUsers = async (req, res) => {
 }
 const DeleteUser = async (req, res) => {
   try {
-    let userId = parseInt(req.params.user_id)
-    await User.destroy({ where: { id: userId } })
-    res.send({ message: `Deleted User with an id of ${userId}` })
+    const { id } = req.params
+    const deleted = await User.findByIdAndDelete(id)
+    if (deleted) {
+      return res.status(200).send('User Deleted')
+    }
+    throw new Error('User not found')
   } catch (error) {
-    throw error
+    return res.status(500).send(error.message)
   }
 }
 

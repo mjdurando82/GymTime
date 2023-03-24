@@ -16,8 +16,7 @@ const Login = async (req, res) => {
   try {
     const { email, password } = req.body
     const user = await User.findOne({
-      where: { email: email },
-      raw: true
+      email: email
     })
     let matched = await middleware.comparePassword(
       user.passwordDigest,
@@ -43,7 +42,7 @@ const Login = async (req, res) => {
 const ChangePassword = async (req, res) => {
   try {
     const { oldPassword, newPassword } = req.body
-    const user = await User.findByPk(req.params.user_id)
+    const user = await User.findById(req.params.user_id)
     let matched = await middleware.comparePassword(
       user.passwordDigest,
       oldPassword
