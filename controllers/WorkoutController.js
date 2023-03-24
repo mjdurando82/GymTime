@@ -24,7 +24,7 @@ const getWorkouts = async (req, res) => {
 const deleteWorkout = async (req, res) => {
   try {
     const { id } = req.params
-    const deleted = await Review.findByIdAndDelete(id)
+    const deleted = await Workout.findByIdAndDelete(id)
     if (deleted) {
       return res.status(200).send('Workout Deleted')
     }

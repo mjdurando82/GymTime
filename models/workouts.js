@@ -8,7 +8,7 @@ const Workout = new Schema(
     date: { type: Date, required: true },
     exercises: { type: Array, required: true },
     notes: { type: String, required: false },
-    image: { type: String, required: true }
+    image: { type: String, required: false }
   },
   { timestamps: true }
 )
