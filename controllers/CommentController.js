@@ -9,11 +9,11 @@ const GetAllComments = async (req, res) => {
   }
 }
 
-const GetAllCommentsForCar = async (req, res) => {
+const GetAllCommentsForWorkout = async (req, res) => {
   try {
-    let carsId = parseInt(req.params.car_id)
-    const carComments = await Comment.findAll({ where: { car_id: carsId } })
-    res.send(carComments)
+    let workoutId = parseInt(req.params.workout_id)
+    const workoutComments = await Comment.findAll({ workout_id: workoutId })
+    res.send(workoutComments)
   } catch (error) {
     throw error
   }
@@ -22,10 +22,10 @@ const GetAllCommentsForCar = async (req, res) => {
 const CreateComment = async (req, res) => {
   try {
     let userId = parseInt(req.params.user_id)
-    let carsId = parseInt(req.params.car_id)
+    let workoutId = parseInt(req.params.workout_id)
     let commentBody = {
       userId,
-      carsId,
+      workoutId,
       ...req.body
     }
     let comment = await Comment.create(commentBody)
@@ -63,5 +63,5 @@ module.exports = {
   UpdateComment,
   CreateComment,
   DeleteComment,
-  GetAllCommentsForCar
+  GetAllCommentsForWorkout
 }

@@ -16,6 +16,13 @@ router.get(
   controller.getWorkoutbyUserId
 )
 
+router.get(
+  '/all',
+  middleware.stripToken,
+  middleware.verifyToken,
+  controller.getWorkouts
+)
+
 router.delete(
   '/delete/:id',
   middleware.stripToken,
