@@ -11,14 +11,14 @@ router.post(
   controller.CreateComment
 )
 router.put(
-  '/update/:comment_id',
+  '/update/:id',
   middleware.stripToken,
   middleware.verifyToken,
   controller.UpdateComment
 )
-router.get('all/:workout_id', controller.GetAllCommentsForWorkout)
+router.get('/workout/:id', controller.GetCommentsForWorkout)
 router.delete(
-  '/delete/:comment_id',
+  '/delete/:id',
   middleware.stripToken,
   middleware.verifyToken,
   controller.DeleteComment

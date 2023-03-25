@@ -9,29 +9,24 @@ const GetAllComments = async (req, res) => {
   }
 }
 
-const GetAllCommentsForWorkout = async (req, res) => {
+const GetCommentsForWorkout = async (req, res) => {
   try {
-    let workoutId = parseInt(req.params.workout_id)
-    const workoutComments = await Comment.findAll({ workout_id: workoutId })
-    res.send(workoutComments)
+    const comments = await Comment.find({ workout: req.params.id })
+    return res.status(200).json({ comments })
   } catch (error) {
-    throw error
+    return res.status(500).send(error.message)
   }
 }
 
 const CreateComment = async (req, res) => {
   try {
-    let userId = parseInt(req.params.user_id)
-    let workoutId = parseInt(req.params.workout_id)
-    let commentBody = {
-      userId,
-      workoutId,
-      ...req.body
-    }
-    let comment = await Comment.create(commentBody)
-    res.send(comment)
+    const comment = await new Comment(req.body)
+    await comment.save()
+    return res.status(201).json({
+      comment
+    })
   } catch (error) {
-    throw error
+    return res.status(500).json({ error: error.message })
   }
 }
 
@@ -64,5 +59,5 @@ module.exports = {
   UpdateComment,
   CreateComment,
   DeleteComment,
-  GetAllCommentsForWorkout
+  GetCommentsForWorkout
 }
