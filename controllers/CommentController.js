@@ -1,8 +1,8 @@
-const { Comment, User, Car } = require('../models')
+const Comment = require('../models/comments')
 
 const GetAllComments = async (req, res) => {
   try {
-    let comments = await Comment.findAll()
+    let comments = await Comment.find()
     res.send(comments)
   } catch (error) {
     throw error
@@ -37,24 +37,25 @@ const CreateComment = async (req, res) => {
 
 const UpdateComment = async (req, res) => {
   try {
-    let commentId = parseInt(req.params.comment_id)
-    let updateComment = await Comment.update(req.body, {
-      where: { id: commentId },
-      returning: true
+    const comment = await Comment.findByIdAndUpdate(req.params.id, req.body, {
+      new: true
     })
-    res.send(updateComment)
+    res.status(200).json(comment)
   } catch (error) {
-    throw error
+    return res.status(500).send(error.message)
   }
 }
 
 const DeleteComment = async (req, res) => {
   try {
-    let commentId = parseInt(req.params.comment_id)
-    await Comment.destroy({ where: { id: commentId } })
-    res.send({ message: `Deleted Comment with an id of ${commentId}` })
+    const { id } = req.params
+    const deleted = await Comment.findByIdAndDelete(id)
+    if (deleted) {
+      return res.status(200).send('Comment Deleted')
+    }
+    throw new Error('Comment not found')
   } catch (error) {
-    throw error
+    return res.status(500).send(error.message)
   }
 }
 
