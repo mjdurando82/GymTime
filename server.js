@@ -1,3 +1,4 @@
+const cors = require('cors')
 const express = require('express')
 const routes = require('./routes')
 const AuthRouter = require('./routes/AuthRouter')
@@ -14,6 +15,7 @@ const PORT = process.env.PORT || 3001
 
 const app = express()
 
+app.use(cors())
 app.use(express.json())
 
 // app.use() middleware here ^ ///////////////////
