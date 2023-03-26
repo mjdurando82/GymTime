@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router-dom'
 
 
 const Login = () => {
+
+  const [user, setUser] = useState(null)
+
   let navigate = useNavigate()
   let initialState = { email: '', password: '' }
   const [formValues, setFormValues] = useState(initialState)
@@ -21,8 +24,7 @@ const Login = () => {
   }
 
   return (
-    <div className='signinPage'>
-
+    <div className='loginPage'>
     <div className="signin">
       <div className="card-overlay centered">
         <form className="signinForm" onSubmit={handleSubmit}>
@@ -59,3 +61,5 @@ const Login = () => {
   </div>
   )
 }
+
+export default  Login
