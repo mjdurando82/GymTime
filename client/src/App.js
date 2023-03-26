@@ -1,11 +1,7 @@
 import './App.css'
 
 function App() {
-  return (
-    <div className="App">
-      <h2>Hello tailwind</h2>
-    </div>
-  )
+  return <div className="App"></div>
 }
 
 export default App
