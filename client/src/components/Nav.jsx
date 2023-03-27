@@ -9,7 +9,7 @@ const Nav = ({ user, handleLogout }) => {
       <Link to='/home'>Home</Link>
       <Link to='/workout'>Workout</Link>
       <Link to='/history'>History</Link>
-      <Link to='/social'>Feed</Link>
+      <Link to='/feed'>Feed</Link>
       <Link onClick={handleLogout} to='/'>Sign Out</Link>
       </header>
       {/* )} */}

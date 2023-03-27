@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Client from "../services/api"
 
 
 const Workout = ({ user }) => {
@@ -22,20 +23,28 @@ const Workout = ({ user }) => {
     setFormState({...formState, [e.target.id]: e.target.value})
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    await Client.post(`http://localhost:3001/workout/new`, formState)
+    setFormState(initialState)
+  }
+
 
   return (
     <main>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name: </label>
         <input
+              id="name"
               onChange={handleChange}
               name="name"
-              type="name"
+              type="text"
               placeholder=" ex:Chest Day"
               value={formState.name}
               />
         <label htmlFor="date">Date: </label>
         <input
+              id="date"
               onChange={handleChange}
               name="date"
               type="date"
@@ -43,14 +52,16 @@ const Workout = ({ user }) => {
               />
         <label htmlFor="exercises">Exercises: </label>
         <input
+              id="exercises"
               onChange={handleChange}
               name="exercises"
-              type="exercises"
+              type="text"
               placeholder="Choose Your Exercises"
               value={formState.exercises}
               />
         <label htmlFor="notes">Notes: </label>
         <input
+              id="notes"
               onChange={handleChange}
               name="notes"
               type="text"
@@ -59,6 +70,7 @@ const Workout = ({ user }) => {
               />
         <label htmlFor="image">Image: </label>
         <input
+              id="image"
               onChange={handleChange}
               name="image"
               type="text"
@@ -70,6 +82,7 @@ const Workout = ({ user }) => {
               <option value="true">Yes</option>
               <option value="false">No</option>
         </select>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save Workout</button>
       </form>
     </main>
   )

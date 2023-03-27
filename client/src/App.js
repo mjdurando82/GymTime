@@ -1,8 +1,10 @@
 // import './App.css'
 import './index.css'
 import Home from './pages/Home'
-import Nav from './components/Nav'
+import Feed from './pages/Feed'
 import Login from './pages/Login'
+import Nav from './components/Nav'
+import History from './pages/History'
 import Workout from './components/Workout'
 import { useState, useEffect } from 'react'
 import { CheckSession } from './services/Auth'
@@ -20,7 +22,6 @@ const App = () => {
     const token = localStorage.getItem('token')
     if (token) {
       checkToken()
-      console.log(user)
     }
   }, [])
 
@@ -37,6 +38,8 @@ const App = () => {
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<Home user={user} />} />
           <Route path="/workout" element={<Workout user={user} />} />
+          <Route path="/feed" element={<Feed />} />
+          <Route path="/history" element={<History />} />
         </Routes>
       </main>
     </div>

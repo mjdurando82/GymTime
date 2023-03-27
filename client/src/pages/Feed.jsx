@@ -1,6 +1,6 @@
 const Feed = () => {
   return (
-    <h3></h3>
+    <h3>Posts Here</h3>
   )
 }
 
