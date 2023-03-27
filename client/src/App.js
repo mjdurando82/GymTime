@@ -1,4 +1,5 @@
-import './App.css'
+// import './App.css'
+import './index.css'
 import Home from './pages/Home'
 import Nav from './components/Nav'
 import Login from './pages/Login'
@@ -19,17 +20,23 @@ const App = () => {
     const token = localStorage.getItem('token')
     if (token) {
       checkToken()
+      console.log(user)
     }
   }, [])
 
+  const handleLogOut = () => {
+    setUser(null)
+    localStorage.clear()
+  }
+
   return (
-    <div className="App">
-      <Nav />
+    <div>
+      <Nav handleLogout={handleLogOut} user={user} />
       <main>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/workout" element={<Workout />} />
+          <Route path="/home" element={<Home user={user} />} />
+          <Route path="/workout" element={<Workout user={user} />} />
         </Routes>
       </main>
     </div>
