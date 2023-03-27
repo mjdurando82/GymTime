@@ -1,6 +1,8 @@
 import './App.css'
 import Home from './pages/Home'
+import Nav from './components/Nav'
 import Login from './pages/Login'
+import Workout from './components/Workout'
 import { useState, useEffect } from 'react'
 import { CheckSession } from './services/Auth'
 import { Routes, Route } from 'react-router-dom'
@@ -22,10 +24,12 @@ const App = () => {
 
   return (
     <div className="App">
+      <Nav />
       <main>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/workout" element={<Workout />} />
         </Routes>
       </main>
     </div>
