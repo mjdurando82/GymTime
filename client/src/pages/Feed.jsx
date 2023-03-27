@@ -10,7 +10,6 @@ const Feed = () => {
     const response = await axios.get(`http://localhost:3001/workout/posts`)
     setPosts(response.data.workouts)
   }
-  console.log(posts)
 
   useEffect(() => {
     getPosts()

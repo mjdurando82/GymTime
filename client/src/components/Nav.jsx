@@ -6,11 +6,11 @@ const Nav = ({ user, handleLogout }) => {
     <nav className='bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-blue-900'>
     {/* {user && ( */}
           <header className='container flex flex-wrap items-center justify-evenly'>
-      <Link to='/home'>Home</Link>
-      <Link to='/workout'>Workout</Link>
-      <Link to='/history'>History</Link>
-      <Link to='/feed'>Feed</Link>
-      <Link onClick={handleLogout} to='/'>Sign Out</Link>
+      <Link to='/home' className='hover:text-blue-700'>Home</Link>
+      <Link to='/workout' className='hover:text-blue-700'>Workout</Link>
+      <Link to='/history' className='hover:text-blue-700'>History</Link>
+      <Link to='/feed' className='hover:text-blue-700'>Feed</Link>
+      <Link onClick={handleLogout} to='/' className='hover:text-blue-700'>Sign Out</Link>
       </header>
       {/* )} */}
       </nav>

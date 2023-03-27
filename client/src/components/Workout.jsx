@@ -82,7 +82,7 @@ const Workout = ({ user }) => {
               <option value="true">Yes</option>
               <option value="false">No</option>
         </select>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save Workout</button>
+        <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save Workout</button>
       </form>
     </main>
   )

@@ -15,7 +15,7 @@ const Login = () => {
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
-  const handleRegisterSubmit = async (e) => {
+  const handleRegistration = async (e) => {
     e.preventDefault()
     await RegisterUser({
       userName: formValues.userName,
@@ -71,7 +71,7 @@ const Login = () => {
               />
           </div>
           <div>
-          <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' disabled={!formValues.email || !formValues.password}>
+          <button className='dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' disabled={!formValues.email || !formValues.password}>
             Login
           </button>
           </div>
@@ -82,7 +82,7 @@ const Login = () => {
     </div>
 {/* Register */}
 {register && (
-  <form onSubmit={handleRegisterSubmit}>
+  <form onSubmit={handleRegistration}>
           <div>
             <h3>Register</h3>
             <label htmlFor="userName">Username</label>
@@ -128,7 +128,7 @@ const Login = () => {
               />
           </div>
           <div>
-          <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+          <button className='dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
             disabled={
               !formValues.email ||
               (!formValues.password &&
