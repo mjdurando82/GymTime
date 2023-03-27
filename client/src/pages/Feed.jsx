@@ -1,4 +1,5 @@
 import axios from "axios"
+import CommentForm from "../components/CommentForm"
 import { useEffect, useState } from "react"
 
 
@@ -24,6 +25,7 @@ const Feed = () => {
           <p>{post.notes}</p>
           <p>{post.image}</p>
           <p>{post.date}</p>
+          <CommentForm />
       </div>
         ))}
     </div>
