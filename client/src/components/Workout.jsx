@@ -8,7 +8,7 @@ const Workout = ({ user }) => {
   const [workout, setWorkout] = useState()
   
   const initialState = {
-    user: user,
+    user: user?.id,
     name: '',
     date: '',
     exercises: [],
