@@ -12,7 +12,8 @@ const Workout = ({ user }) => {
     date: '',
     exercises: [],
     notes: '',
-    image: ''
+    image: '',
+    post: true
   }
   
     const [formState, setFormState] = useState(initialState)
@@ -32,7 +33,6 @@ const Workout = ({ user }) => {
               type="name"
               placeholder=" ex:Chest Day"
               value={formState.name}
-              required
               />
         <label htmlFor="date">Date: </label>
         <input
@@ -40,7 +40,6 @@ const Workout = ({ user }) => {
               name="date"
               type="date"
               value={formState.date}
-              required
               />
         <label htmlFor="exercises">Exercises: </label>
         <input
@@ -49,7 +48,6 @@ const Workout = ({ user }) => {
               type="exercises"
               placeholder="Choose Your Exercises"
               value={formState.exercises}
-              required
               />
         <label htmlFor="notes">Notes: </label>
         <input
@@ -58,7 +56,6 @@ const Workout = ({ user }) => {
               type="text"
               placeholder=" ex:Felt great today!"
               value={formState.notes}
-              required
               />
         <label htmlFor="image">Image: </label>
         <input
@@ -67,8 +64,12 @@ const Workout = ({ user }) => {
               type="text"
               placeholder="Image Here"
               value={formState.image}
-              required
               />
+        <label htmlFor="post">Do you want to post this workout? </label>
+        <select id="post" onChange={handleChange} value={formState.post}>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+        </select>
       </form>
     </main>
   )

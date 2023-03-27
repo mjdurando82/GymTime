@@ -20,6 +20,14 @@ const getWorkouts = async (req, res) => {
     return res.status(500).send(error.message)
   }
 }
+const getPosts = async (req, res) => {
+  try {
+    const workouts = await Workout.find({ post: true })
+    return res.status(200).json({ workouts })
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
 
 const deleteWorkout = async (req, res) => {
   try {
@@ -57,6 +65,7 @@ const getWorkoutbyUserId = async (req, res) => {
 module.exports = {
   createWorkout,
   getWorkouts,
+  getPosts,
   deleteWorkout,
   updateWorkout,
   getWorkoutbyUserId

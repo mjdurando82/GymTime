@@ -3,6 +3,7 @@ const Schema = mongoose.Schema
 
 const ExerciseList = new Schema(
   {
+    workout: { type: Schema.Types.ObjectId, ref: 'Workout' },
     name: { type: String, required: true },
     type: { type: String, required: true },
     muscle: { type: String, required: true },
