@@ -7,7 +7,8 @@ const CommentForm = ({ user }) => {
   let { id } = useParams()
 
   const initialState = {
-
+    user: user?.id,
+    workout: '',
     content: ''
   }
   const [formState, setFormState] = useState(initialState)
@@ -40,7 +41,7 @@ const CommentForm = ({ user }) => {
           onChange={handleChange}
           value={formState.content}
         />
-        <button className="submit-button" type="submit">
+        <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded" type="submit">
           Add Comment
         </button>
       </form>

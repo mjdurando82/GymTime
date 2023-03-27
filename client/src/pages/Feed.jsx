@@ -14,6 +14,7 @@ const Feed = () => {
 
   useEffect(() => {
     getPosts()
+    console.log(posts)
   }, [])
   return (
     <div>
