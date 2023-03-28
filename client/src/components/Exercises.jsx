@@ -7,6 +7,13 @@ const Exercises = () => {
 
 const [exerciseList, setExerciseList] = useState()
 
+const exercises = []
+
+  const addLift = (exercise) => {
+    exercises.push(exercise)
+    console.log(exercises)
+  }
+
   const getAbExercises = async () => {
     const response = await axios.get('https://api.api-ninjas.com/v1/exercises?muscle=abdominals', {
       headers: {
@@ -159,11 +166,11 @@ const [exerciseList, setExerciseList] = useState()
         {exerciseList?.map((exercise) => (
           <div>
             <p>Name: {exercise.name}</p>
-            <p>Type: {exercise.type}</p>
+            {/* <p>Type: {exercise.type}</p> */}
             <p>Equipment Needed: {exercise.equipment}</p>
             <p>Difficulty Level: {exercise.difficulty}</p>
             <p> Instructions: {exercise.instructions}</p>
-            <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add To Workout</button>
+            <button onClick={()=>addLift(exercise.name)} className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add To Workout</button>
           </div>
         ))}
       </section>

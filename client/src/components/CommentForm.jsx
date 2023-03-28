@@ -3,12 +3,11 @@ import { useParams } from 'react-router-dom'
 import Client from '../services/api'
 
 
-const CommentForm = ({ user }) => {
-  let { id } = useParams()
+const CommentForm = ({ user, post, getPosts }) => {
 
   const initialState = {
     user: user?.id,
-    workout: '',
+    workout: post._id,
     content: ''
   }
   const [formState, setFormState] = useState(initialState)
@@ -22,15 +21,16 @@ const CommentForm = ({ user }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await Client.post(
-      // `http://localhost:3001/comment/new/${workout_id}`,
+      `http://localhost:3001/comment/new/${post._id}`,
       formState
     )
     setFormState(initialState)
+    getPosts()
   }
 
   return (
     <div className="comment-form-container">
-      <form onSubmit={handleSubmit} className="comment-form">
+      <form onSubmit={() => handleSubmit()} className="comment-form">
         <label htmlFor="content" className="commenttitle">
           Comment
         </label>

@@ -10,11 +10,11 @@ const Feed = () => {
   const getPosts = async () => {
     const response = await axios.get(`http://localhost:3001/workout/posts`)
     setPosts(response.data.workouts)
+    console.log(posts)
   }
 
   useEffect(() => {
     getPosts()
-    console.log(posts)
   }, [])
   return (
     <div>
@@ -26,7 +26,9 @@ const Feed = () => {
           <p>{post.notes}</p>
           <p>{post.image}</p>
           <p>{post.date}</p>
-          <CommentForm />
+          <h5>Comments:</h5>
+          <p>{post.comments}</p>
+          <CommentForm post={post} getPosts={getPosts}/>
       </div>
         ))}
     </div>

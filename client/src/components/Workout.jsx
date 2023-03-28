@@ -3,7 +3,7 @@ import Client from "../services/api"
 import Exercises from "./Exercises"
 
 
-const Workout = ({ user }) => {
+const Workout = ({ user, abs, abdductors, addductors, bis, calves, chest, forearms, glutes, hams, lats, lowBack, midBack, neck, quads, traps, tris }) => {
 
   
   const [workout, setWorkout] = useState()
@@ -32,7 +32,7 @@ const Workout = ({ user }) => {
 
 
   return (
-    <main>
+    <main className="">
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name: </label>
         <input
@@ -87,7 +87,24 @@ const Workout = ({ user }) => {
       </form>
       <section>
         <h4>Add Exercises</h4>
-        <Exercises />
+        <Exercises                 
+                abs={abs}
+                abdductors={abdductors}
+                addductors={addductors}
+                bis={bis}
+                calves={calves}
+                chest={chest}
+                forearms={forearms}
+                glutes={glutes}
+                hams={hams}
+                lats={lats}
+                lowBack={lowBack}
+                midBack={midBack}
+                neck={neck}
+                quads={quads}
+                traps={traps}
+                tris={tris}
+                />
       </section>
     </main>
   )
