@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Client from "../services/api"
+import Exercises from "./Exercises"
 
 
 const Workout = ({ user }) => {
@@ -84,6 +85,10 @@ const Workout = ({ user }) => {
         </select>
         <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save Workout</button>
       </form>
+      <section>
+        <h4>Add Exercises</h4>
+        <Exercises />
+      </section>
     </main>
   )
 }
