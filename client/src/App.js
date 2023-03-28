@@ -250,7 +250,7 @@ const App = () => {
   return (
     <div>
       <Nav handleLogout={handleLogOut} user={user} />
-      <main className="bg-gray-300">
+      <main>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<Home user={user} />} />

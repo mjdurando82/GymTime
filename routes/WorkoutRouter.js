@@ -18,6 +18,8 @@ router.get(
 
 router.get('/posts', controller.getPosts)
 
+router.get('/:id', controller.getWorkoutById)
+
 router.get('/all', controller.getWorkouts)
 
 router.delete(

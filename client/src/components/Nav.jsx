@@ -12,7 +12,7 @@ const Nav = ({ user, handleLogout }) => {
       <Link to='/feed' className='hover:text-blue-700'>Feed</Link>
       <Link onClick={handleLogout} to='/' className='hover:text-blue-700'>Sign Out</Link>
       </header>
-      {/* )} */}
+      {/* // )} */}
       </nav>
       )
     }
