@@ -6,15 +6,20 @@ import { useEffect, useState } from "react"
 const Feed = () => {
 
   const [posts, setPosts] = useState()
-
+  const [comments, setComments] = useState()
   const getPosts = async () => {
     const response = await axios.get(`http://localhost:3001/workout/posts`)
     setPosts(response.data.workouts)
     console.log(posts)
   }
+  const getComments = async () => {
+    const response = await axios.get('http://localhost:3001/comment/all')
+    console.log(response)
+  }
 
   useEffect(() => {
     getPosts()
+    getComments()
   }, [])
   return (
     <div>

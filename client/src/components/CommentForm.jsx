@@ -25,12 +25,11 @@ const CommentForm = ({ user, post, getPosts }) => {
       formState
     )
     setFormState(initialState)
-    getPosts()
   }
 
   return (
     <div className="comment-form-container">
-      <form onSubmit={() => handleSubmit()} className="comment-form">
+      <form onSubmit={handleSubmit} className="comment-form">
         <label htmlFor="content" className="commenttitle">
           Comment
         </label>
