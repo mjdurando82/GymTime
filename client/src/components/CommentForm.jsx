@@ -30,8 +30,8 @@ const CommentForm = ({ user, post, getPosts }) => {
   return (
     <div className="comment-form-container">
       <form onSubmit={handleSubmit} className="comment-form">
-        <label htmlFor="content" className="commenttitle">
-          Comment
+        <label htmlFor="content" placeholder='Comment Here'>
+          Leave a Comment
         </label>
         <input
           className="inputfield"
