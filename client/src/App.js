@@ -278,7 +278,7 @@ const App = () => {
               />
             }
           />
-          <Route path="/feed" element={<Feed />} />
+          <Route path="/feed" element={<Feed user={user} />} />
           <Route path="/history" element={<History user={user} />} />
         </Routes>
       </main>

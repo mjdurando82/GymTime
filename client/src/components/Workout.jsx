@@ -22,6 +22,7 @@ const Workout = ({ user, abs, abdductors, addductors, bis, calves, chest, forear
 
   const handleChange = (e) => {
     setFormState({...formState, [e.target.id]: e.target.value})
+    console.log(user)
   }
 
   const handleSubmit = async (e) => {

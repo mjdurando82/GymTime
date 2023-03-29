@@ -5,7 +5,7 @@ import CommentForm from "../components/CommentForm"
 import { useParams } from "react-router-dom"
 
 
-const Feed = () => {
+const Feed = ({ user }) => {
 
   const { id } = useParams()
 
@@ -24,7 +24,7 @@ const Feed = () => {
   const deleteComment = async (e, commentId) => {
     e.preventDefault()
     await Client.delete(`http://localhost:3001/comment/delete/${commentId}`)
-    // getPosts()
+    getPosts()
   }
 
   return (
@@ -41,7 +41,9 @@ const Feed = () => {
           {post?.comments?.map((comment) => (
             <>
             <p key={comment._id}>{comment.content}</p>
-            <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded" onClick={(e) => deleteComment(e, comment._id)}>X</button>
+            {/* {user?.id === comment?.user &&( */}
+              <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded" onClick={(e) => deleteComment(e, comment._id)}>X</button>
+            {/* )} */}
             </>
           ))}
           <CommentForm post={post} getPosts={getPosts}/>

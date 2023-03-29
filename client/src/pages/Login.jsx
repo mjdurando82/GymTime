@@ -9,21 +9,36 @@ const Login = () => {
   const [user, setUser] = useState(null)
   const [register, setRegister] = useState(false)
   let navigate = useNavigate()
+
   let initialState = { email: '', password: '' }
+
+  let regInitialState = {
+  username: '',
+  email: '',
+  password: '',
+  confirmPassword: '' 
+}
   const [formValues, setFormValues] = useState(initialState)
+
+  const [regValues, setRegValues] = useState(regInitialState)
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
+  const handleRegChange = (e) => {
+    setRegValues({ ...regValues, [e.target.name]: e.target.value })
+  }
+
   const handleRegistration = async (e) => {
     e.preventDefault()
     await RegisterUser({
-      userName: formValues.userName,
-      email: formValues.email,
-      password: formValues.password
+      username: regValues.username,
+      email: regValues.email,
+      password: regValues.password
     })
-    setFormValues(initialState)
-    setRegister(true)
+    setRegValues(regInitialState)
+    setRegister(false)
+
   }
 
   const handleSubmit = async (e) => {
@@ -85,54 +100,54 @@ const Login = () => {
   <form onSubmit={handleRegistration}>
           <div>
             <h3>Register</h3>
-            <label htmlFor="userName">Username</label>
+            <label htmlFor="username">Username: </label>
             <input
-              onChange={handleChange}
+              onChange={handleRegChange}
               name="username"
-              type="text"
+              type="username"
               placeholder="Username"
-              value={formValues.userName}
+              value={regValues.username}
               required
               />
           </div>
           <div>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">Email: </label>
             <input
-              onChange={handleChange}
+              onChange={handleRegChange}
               name="email"
               type="email"
               placeholder="example@example.com"
-              value={formValues.email}
+              value={regValues.email}
               required
               />
           </div>
 
           <div>
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password">Password: </label>
             <input
-              onChange={handleChange}
+              onChange={handleRegChange}
               type="password"
               name="password"
-              value={formValues.password}
+              value={regValues.password}
               required
               />
           </div>
           <div>
-            <label htmlFor="confirmPassword">Confirm Password</label>
+            <label htmlFor="confirmPassword">Confirm Password: </label>
             <input
-              onChange={handleChange}
+              onChange={handleRegChange}
               type="password"
               name="confirmPassword"
-              value={formValues.confirmPassword}
+              value={regValues.confirmPassword}
               required
               />
           </div>
           <div>
           <button className='dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
             disabled={
-              !formValues.email ||
-              (!formValues.password &&
-                formValues.confirmPassword === formValues.password)
+              !regValues.email ||
+              (!regValues.password &&
+                regValues.confirmPassword === regValues.password)
               }
               >
             Sign In

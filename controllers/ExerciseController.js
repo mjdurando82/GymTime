@@ -1,9 +1,13 @@
 const Exercise = require('../models/exercises')
+const Workout = require('../models/workouts')
 
 const createExercise = async (req, res) => {
   try {
     const exercise = await new Exercise(req.body)
     await exercise.save()
+    const workout = await Workout.findById(req.body.workout)
+    workout.exercises.push(exercise.id)
+    await workout.save()
     return res.status(201).json({
       exercise
     })

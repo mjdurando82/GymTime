@@ -24,7 +24,6 @@ const CreateComment = async (req, res) => {
     const comment = await new Comment(req.body)
     await comment.save()
     const workout = await Workout.findById(req.body.workout)
-    console.log(req.body)
     workout.comments.push(comment.id)
     await workout.save()
     return res.status(201).json({
