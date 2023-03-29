@@ -16,7 +16,6 @@ const CommentForm = ({ user, post, getPosts }) => {
   const handleChange = (e) => {
     setFormState({ ...formState, [e.target.id]: e.target.value })
     setComment(formState.comment)
-    console.log(user)
   }
 
   const handleSubmit = async (e) => {
@@ -26,13 +25,14 @@ const CommentForm = ({ user, post, getPosts }) => {
       formState
     )
     setFormState(initialState)
+    getPosts()
   }
 
   return (
     <div className="comment-form-container">
       <form onSubmit={handleSubmit} className="comment-form">
         <label htmlFor="content" placeholder='Comment Here'>
-          Leave a Comment
+          Leave a Comment: 
         </label>
         <input
           className="inputfield"

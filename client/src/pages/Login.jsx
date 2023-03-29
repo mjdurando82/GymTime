@@ -4,10 +4,10 @@ import { RegisterUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 
 
-const Login = () => {
+const Login = ({ setUser }) => {
 
-  const [user, setUser] = useState(null)
   const [register, setRegister] = useState(false)
+
   let navigate = useNavigate()
 
   let initialState = { email: '', password: '' }

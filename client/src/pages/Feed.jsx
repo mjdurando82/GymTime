@@ -2,12 +2,9 @@ import axios from "axios"
 import Client from "../services/api"
 import { useEffect, useState } from "react"
 import CommentForm from "../components/CommentForm"
-import { useParams } from "react-router-dom"
-
 
 const Feed = ({ user }) => {
 
-  const { id } = useParams()
 
   const [posts, setPosts] = useState()
 
@@ -19,7 +16,6 @@ const Feed = ({ user }) => {
 
   useEffect(() => {
     getPosts()
-    console.log(user)
   }, [])
 
   const deleteComment = async (e, commentId) => {
@@ -43,7 +39,7 @@ const Feed = ({ user }) => {
           <h5>Comments:</h5>
           {post?.comments?.map((comment) => (
             <>
-            <p key={comment._id}> {comment.content}</p>
+            <p key={comment._id}>{comment.user}: {comment.content}</p>
             {user?.id === comment?.user &&(
               <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded" onClick={(e) => deleteComment(e, comment._id)}>X</button>
             )} 
