@@ -1,26 +1,32 @@
 import axios from "axios"
-import CommentForm from "../components/CommentForm"
+import Client from "../services/api"
 import { useEffect, useState } from "react"
+import CommentForm from "../components/CommentForm"
+import { useParams } from "react-router-dom"
 
 
 const Feed = () => {
 
+  const { id } = useParams()
+
   const [posts, setPosts] = useState()
-  const [comments, setComments] = useState()
+
   const getPosts = async () => {
     const response = await axios.get(`http://localhost:3001/workout/posts`)
     setPosts(response.data.workouts)
-    console.log(posts, 'posts')
-  }
-  const getComments = async () => {
-    const response = await axios.get('http://localhost:3001/comment/all')
-    console.log(response, 'comments')
+    getPosts()
   }
 
   useEffect(() => {
     getPosts()
-    getComments()
   }, [])
+
+  const deleteComment = async (e, commentId) => {
+    e.preventDefault()
+    await Client.delete(`http://localhost:3001/comment/delete/${commentId}`)
+    // getPosts()
+  }
+
   return (
     <div>
       <h3>Posts Here</h3>
@@ -32,7 +38,12 @@ const Feed = () => {
           <p>{post.image}</p>
           <p>{post.date}</p>
           <h5>Comments:</h5>
-          <p>{post.comments.content}</p>
+          {post?.comments?.map((comment) => (
+            <>
+            <p key={comment._id}>{comment.content}</p>
+            <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded" onClick={(e) => deleteComment(e, comment._id)}>X</button>
+            </>
+          ))}
           <CommentForm post={post} getPosts={getPosts}/>
       </div>
         ))}
