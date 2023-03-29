@@ -164,7 +164,7 @@ const exercises = []
       <h5 onClick={getTricepExercises}>Triceps</h5>
       <section>
         {exerciseList?.map((exercise) => (
-          <div>
+          <div key={exercise.instructions}>
             <p>Name: {exercise.name}</p>
             {/* <p>Type: {exercise.type}</p> */}
             <p>Equipment Needed: {exercise.equipment}</p>

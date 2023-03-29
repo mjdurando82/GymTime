@@ -19,6 +19,7 @@ const Feed = ({ user }) => {
 
   useEffect(() => {
     getPosts()
+    console.log(user)
   }, [])
 
   const deleteComment = async (e, commentId) => {
@@ -37,18 +38,18 @@ const Feed = ({ user }) => {
           <p>{post.image}</p>
           <p>{post.date}</p>
           {post?.exercises?.map((exercise) => (
-            <p>{exercise.name}: {exercise.sets} x {exercise.reps}</p>
+            <p key={exercise._id}>{exercise.name}: {exercise.sets} x {exercise.reps}</p>
             ))}
           <h5>Comments:</h5>
           {post?.comments?.map((comment) => (
             <>
-            <p key={comment._id}>{comment.content}</p>
-            {/* {user?.id === comment?.user &&( */}
+            <p key={comment._id}> {comment.content}</p>
+            {user?.id === comment?.user &&(
               <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded" onClick={(e) => deleteComment(e, comment._id)}>X</button>
-            {/* )} */}
+            )} 
             </>
           ))}
-          <CommentForm post={post} getPosts={getPosts}/>
+          <CommentForm post={post} getPosts={getPosts} user={user}/>
       </div>
         ))}
     </div>

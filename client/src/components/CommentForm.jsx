@@ -16,6 +16,7 @@ const CommentForm = ({ user, post, getPosts }) => {
   const handleChange = (e) => {
     setFormState({ ...formState, [e.target.id]: e.target.value })
     setComment(formState.comment)
+    console.log(user)
   }
 
   const handleSubmit = async (e) => {
