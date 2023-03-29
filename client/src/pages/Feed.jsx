@@ -33,10 +33,12 @@ const Feed = ({ user }) => {
         {posts?.map((post) => (
       <div key={post._id}>
           <p>{post.name}</p>
-          <p>{post.exercises}</p>
           <p>Notes: {post.notes}</p>
           <p>{post.image}</p>
           <p>{post.date}</p>
+          {post?.exercises?.map((exercise) => (
+            <p>{exercise.name}: {exercise.sets} x {exercise.reps}</p>
+            ))}
           <h5>Comments:</h5>
           {post?.comments?.map((comment) => (
             <>
