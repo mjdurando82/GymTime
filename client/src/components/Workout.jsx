@@ -1,100 +1,3 @@
-// import { useState } from "react"
-// import Client from "../services/api"
-// import Exercises from "./Exercises"
-
-
-// const Workout = ({ user, abs, abdductors, addductors, bis, calves, chest, forearms, glutes, hams, lats, lowBack, midBack, neck, quads, traps, tris }) => {
-
-  
-//   const [exercises, setExercises] = useState([])
-  
-//   const initialState = {
-//     user: user?.id,
-//     name: '',
-//     date: '',
-//     notes: '',
-//     image: '',
-//     post: true
-//   }
-  
-//   let exerciseList = []
-  
-//     const [formState, setFormState] = useState(initialState)
-
-//   const handleChange = (e) => {
-//     setFormState({...formState, [e.target.id]: e.target.value})
-//     console.log(exerciseList)
-//   }
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault()
-//     // await Client.post(`http://localhost:3001/workout/new`, formState)
-//     // setFormState(initialState)
-//     exerciseList.push(formState)
-//   }
-
-//   return (
-//     <main className="">
-//       <form onSubmit={handleSubmit}>
-//         <label htmlFor="name">Name: </label>
-//         <input
-//               id="name"
-//               onChange={handleChange}
-//               name="name"
-//               type="text"
-//               placeholder=" ex:Chest Day"
-//               value={formState.name}
-//               />
-//         <label htmlFor="date">Date: </label>
-//         <input
-//               id="date"
-//               onChange={handleChange}
-//               name="date"
-//               type="date"
-//               value={formState.date}
-//               />
-//         <label htmlFor="notes">Notes: </label>
-//         <input
-//               id="notes"
-//               onChange={handleChange}
-//               name="notes"
-//               type="text"
-//               placeholder=" ex:Felt great today!"
-//               value={formState.notes}
-//               />
-//         <label htmlFor="image">Image: </label>
-//         <input
-//               id="image"
-//               onChange={handleChange}
-//               name="image"
-//               type="text"
-//               placeholder="Image Here"
-//               value={formState.image}
-//               />
-//         <label htmlFor="post">Do you want to post this workout? </label>
-//         <select id="post" onChange={handleChange} value={formState.post}>
-//               <option value="true">Yes</option>
-//               <option value="false">No</option>
-//         </select>
-//       </form>
-//       <section>
-//         {exerciseList?.map((exercise)=> (
-//           <>
-//           <p>{exercise.name}</p>
-//           <p>{exercise.sets}</p>
-//           <p>X {exercise.reps}</p>
-//           </>
-//         ))}
-//         <h4>Add Exercises</h4>
-//         <Exercises user={user} exerciseList={exerciseList} setExercises={setExercises}/> 
-//         <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save Workout</button>
-//       </section>
-//     </main>
-//   )
-// }
-
-// export default Workout
-
 import React, { useState, useEffect } from 'react'
 
 import Client from "../services/api"
@@ -113,7 +16,10 @@ const Workout = ({ user }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const workout = {
-      user: user.id,
+      user: {
+        id: user.id,
+        username: user.username,
+      },
       name: workoutName,
       date: workoutDate,
       exercises: exercises,

@@ -7,10 +7,8 @@ import Nav from './components/Nav'
 import History from './pages/History'
 import Workout from './components/Workout'
 import { useEffect, useState } from 'react'
-import axios, { AxiosHeaders } from 'axios'
 import { CheckSession } from './services/Auth'
 import { Routes, Route } from 'react-router-dom'
-import Exercises from './components/Exercises'
 
 const API_KEY = process.env.REACT_APP_NINJA_KEY
 
