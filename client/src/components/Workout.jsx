@@ -47,6 +47,7 @@ const Workout = ({ user }) => {
   }
 
   return (
+  <div className='bg-slate-400 min-h-screen'>
     <div className="container mx-auto">
       <h2 className="text-2xl font-bold mb-4 pt-16">Workout Tracker</h2>
       <form onSubmit={handleSubmit}>
@@ -132,7 +133,7 @@ const Workout = ({ user }) => {
         <div className='mb-4'>
           <ul>
             {exercises.map((exercise, index) => (
-            <li key={index}>
+              <li key={index}>
               {exercise.name}: {exercise.sets} x {exercise.reps} {exercise.weight}lbs
               </li>
             ))}
@@ -146,6 +147,7 @@ const Workout = ({ user }) => {
         <button className="bg-slate-700 text-white py-3 px-8 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300" type="submit">Save Workout</button>
       </form>
     </div>
+</div>
   )
 }
 

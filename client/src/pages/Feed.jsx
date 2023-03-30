@@ -40,7 +40,7 @@ const Feed = ({ user }) => {
   }
 
   return (
-    <div>
+    <div className='bg-slate-400 min-h-screen'>
       <h2 className="text-2xl font-bold mb-4 pt-16">Posted Workouts</h2>
         {posts?.map((post) => (
       <div key={post._id}>
@@ -53,15 +53,15 @@ const Feed = ({ user }) => {
             ))}
           <h5>Comments:</h5>
           {post?.comments?.map((comment) => (
-            <>
+            <div>
             <p key={comment._id}>{comment.user}: {comment.content}</p>
             {user?.id === comment?.user &&(
-              <>
+              <div>
               <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded" onClick={(e) => deleteComment(e, comment._id)}>Delete</button>
               <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded"                           onClick={(e) => openForm(e,comment._id)}>Update</button>
-              </>
+              </div>
             )}
-            <>
+            <div>
             {comment?._id && showResults && (
                         <UpdateComment
                           openForm={openForm}
@@ -71,8 +71,8 @@ const Feed = ({ user }) => {
                           closeForm={closeForm}
                         />
                       )}
-            </> 
-            </>
+            </div> 
+            </div>
           ))}
           <CommentForm post={post} getPosts={getPosts} user={user}/>
       </div>

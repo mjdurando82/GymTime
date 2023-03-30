@@ -17,7 +17,7 @@ const Home = ({ user }) => {
     getUserById()
   }, [])
   return (
-    <div className='min-h-screen flex flex-col justify-center items-center bg-gray-100'>
+    <div className='bg-slate-400 min-h-screen flex flex-col justify-center items-center bg-gray-100'>
       <img
         src='https://img.freepik.com/free-photo/low-angle-view-unrecognizable-muscular-build-man-preparing-lifting-barbell-health-club_637285-2497.jpg'
         alt='Fitness App'

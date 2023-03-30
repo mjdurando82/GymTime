@@ -57,7 +57,7 @@ const Login = ({ setUser }) => {
   }
 
   return (
-    <div className='pt-16'>
+    <div className='bg-slate-400 min-h-screen pt-16'>
     <div>
       <div>
         {!register && (
@@ -88,13 +88,15 @@ const Login = ({ setUser }) => {
               />
           </div>
           <div className='mb-4'>
-          <button className='dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' disabled={!formValues.email || !formValues.password}>
+          <button className="bg-slate-700 text-white py-2 px-3 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300" disabled={!formValues.email || !formValues.password}>
             Login
           </button>
           </div>
           <p className='text-gray-500 cursor-pointer hover:underline' onClick={toggleForm}>Don't Have An Account Click Here To Register!</p>
-          <p className='mt-4'>email: admin@admin.com</p>
+          <div className='mt-4'>
+          <p>email: admin@admin.com</p>
           <p>password: admin</p>
+          </div>
         </form>
               )}
       </div>
@@ -152,7 +154,7 @@ const Login = ({ setUser }) => {
           </div>
 
           <div className='mb-4'>
-          <button className='dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+          <button className="bg-slate-700 text-white py-2 px-3 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300"
             disabled={
               !regValues.email ||
               (!regValues.password &&

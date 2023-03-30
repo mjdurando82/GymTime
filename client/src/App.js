@@ -10,8 +10,6 @@ import { useEffect, useState } from 'react'
 import { CheckSession } from './services/Auth'
 import { Routes, Route } from 'react-router-dom'
 
-const API_KEY = process.env.REACT_APP_NINJA_KEY
-
 const App = () => {
   const [user, setUser] = useState(null)
 
