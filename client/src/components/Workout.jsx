@@ -200,7 +200,7 @@ const Workout = () => {
           </select>
         </div>
 
-        <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded" onClick={handleAddExercise}>Add Exercise</button>
+        <button className="bg-slate-700 text-white py-3 px-8 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300" onClick={handleAddExercise}>Add Exercise</button>
 
         <ul>
           {exercises.map((exercise, index) => (
@@ -210,7 +210,7 @@ const Workout = () => {
           ))}
         </ul>
 
-        <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded" type="submit">Save Workout</button>
+        <button className="bg-slate-700 text-white py-3 px-8 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300" type="submit">Save Workout</button>
       </form>
     </div>
   )

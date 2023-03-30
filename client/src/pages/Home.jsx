@@ -1,9 +1,21 @@
+import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
 
 
 const Home = ({ user }) => {
-  console.log(user)
+
+  const [username, setUsername] = useState()
+
+  const getUserById = async () => {
+    const response = await axios.get(`http://localhost:3001/user/${user.id}`)
+    setUsername(response.data.user.username)
+  }
+
+  useEffect(() => {
+    getUserById()
+  }, [])
   return (
     <div className='min-h-screen flex flex-col justify-center items-center bg-gray-100'>
       <img
@@ -11,15 +23,17 @@ const Home = ({ user }) => {
         alt='Fitness App'
         className='mb-8 w-64 md:w-96'
       />
-      <h1 className='text-4xl md:text-5xl font-bold text-gray-800 mb-8'>
-        Welcome, {user?.email}!
+      {username && (
+        <h1 className='text-4xl md:text-5xl font-bold text-gray-800 mb-8'>
+        Welcome, {username}!
       </h1>
+        )}
       <p className='text-xl md:text-2xl text-gray-600 mb-12'>
         Start tracking your workouts today.
       </p>
       <Link
         to='/workout'
-        className='bg-blue-600 text-white py-3 px-8 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300'
+        className='bg-slate-700 text-white py-3 px-8 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300'
       >
         Start Workout
       </Link>
