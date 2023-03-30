@@ -61,11 +61,12 @@ const Login = ({ setUser }) => {
     <div>
       <div>
         {!register && (
-          <form onSubmit={handleSubmit}>
-          <div>
-            <h3>Sign In</h3>
-            <label htmlFor="email">Email</label>
+          <form className='max-w-md mx-auto' onSubmit={handleSubmit}>
+          <div className='mb-4'>
+            <h3 className='text-2xl font-bold mb-2'>Sign In</h3>
+            <label className='block text-gray-700 font-bold mb-2' htmlFor="email">Email</label>
             <input
+              className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight'
               onChange={handleChange}
               name="email"
               type="email"
@@ -74,9 +75,11 @@ const Login = ({ setUser }) => {
               required
               />
           </div>
-          <div>
-            <label htmlFor="password">Password</label>
+
+          <div className='mb-4'>
+            <label className='block text-gray-700 font-bold mb-2' htmlFor="password">Password</label>
             <input
+              className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight'
               onChange={handleChange}
               type="password"
               name="password"
@@ -84,23 +87,26 @@ const Login = ({ setUser }) => {
               required
               />
           </div>
-          <div>
+          <div className='mb-4'>
           <button className='dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' disabled={!formValues.email || !formValues.password}>
             Login
           </button>
           </div>
-          <p onClick={toggleForm}>Don't Have An Account Click Here To Register!</p>
+          <p className='text-gray-500 cursor-pointer hover:underline' onClick={toggleForm}>Don't Have An Account Click Here To Register!</p>
+          <p className='mt-4'>email: admin@admin.com</p>
+          <p>password: admin</p>
         </form>
               )}
       </div>
     </div>
 {/* Register */}
 {register && (
-  <form onSubmit={handleRegistration}>
-          <div>
-            <h3>Register</h3>
-            <label htmlFor="username">Username: </label>
+  <form className='max-w-md mx-auto' onSubmit={handleRegistration}>
+          <div className='mb-4'>
+            <h3 className='text-2xl font-bold mb-2'>Register</h3>
+            <label className='block text-gray-700 font-bold mb-2' htmlFor="username">Username: </label>
             <input
+              className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight'
               onChange={handleRegChange}
               name="username"
               type="username"
@@ -109,9 +115,10 @@ const Login = ({ setUser }) => {
               required
               />
           </div>
-          <div>
-            <label htmlFor="email">Email: </label>
+          <div className='mb-4'>
+            <label className='block text-gray-700 font-bold mb-2' htmlFor="email">Email: </label>
             <input
+              className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight'
               onChange={handleRegChange}
               name="email"
               type="email"
@@ -121,9 +128,10 @@ const Login = ({ setUser }) => {
               />
           </div>
 
-          <div>
-            <label htmlFor="password">Password: </label>
+          <div className='mb-4'>
+            <label className='block text-gray-700 font-bold mb-2' htmlFor="password">Password: </label>
             <input
+              className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight'
               onChange={handleRegChange}
               type="password"
               name="password"
@@ -131,9 +139,10 @@ const Login = ({ setUser }) => {
               required
               />
           </div>
-          <div>
-            <label htmlFor="confirmPassword">Confirm Password: </label>
+          <div className='mb-4'>
+            <label className='block text-gray-700 font-bold mb-2' htmlFor="confirmPassword">Confirm Password: </label>
             <input
+              className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight'
               onChange={handleRegChange}
               type="password"
               name="confirmPassword"
@@ -141,7 +150,8 @@ const Login = ({ setUser }) => {
               required
               />
           </div>
-          <div>
+
+          <div className='mb-4'>
           <button className='dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
             disabled={
               !regValues.email ||
@@ -152,7 +162,7 @@ const Login = ({ setUser }) => {
             Sign In
           </button>
           </div>
-          <p onClick={toggleForm}>Already Have An Account Click Here To Login!</p>
+          <p className='text-gray-500 cursor-pointer hover:underline' onClick={toggleForm}>Already Have An Account Click Here To Login!</p>
         </form>
       )}
       </div>

@@ -18,14 +18,14 @@ const History = ({ user }) => {
     <div>
       <h2 className="text-2xl font-bold mb-4 pt-16">Your Workout History</h2>
         {workouts?.map((workout) => (
-      <div key={workout._id}>
+      <div className="mb-4" key={workout._id}>
           <p>{workout.name}</p>
           {workout.exercises.map((exercise) => (
             <>
           <p>{exercise.name} {exercise.sets} x {exercise.reps}</p>
             </>
           ))}
-          <p>{workout.notes}</p>
+          <p>Notes: {workout.notes}</p>
           <p>{workout.image}</p>
           <p>{workout.date}</p>
       </div>

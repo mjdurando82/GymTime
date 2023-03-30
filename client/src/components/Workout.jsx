@@ -9,6 +9,7 @@ const Workout = ({ user }) => {
   const [exerciseName, setExerciseName] = useState('')
   const [exerciseSets, setExerciseSets] = useState('')
   const [exerciseReps, setExerciseReps] = useState('')
+  const [exerciseWeight, setExerciseWeight] = useState('')
   const [exercises, setExercises] = useState([])
   const [post, setPost] = useState(true)
   const [notes, setNotes] = useState()
@@ -36,11 +37,13 @@ const Workout = ({ user }) => {
       name: exerciseName,
       sets: exerciseSets,
       reps: exerciseReps,
+      weight: exerciseWeight,
     }
     setExercises([...exercises, exercise])
     setExerciseName('')
     setExerciseSets('')
     setExerciseReps('')
+    setExerciseWeight('')
   }
 
   return (
@@ -110,9 +113,19 @@ const Workout = ({ user }) => {
             <label htmlFor="exerciseReps">Reps:</label>
             <input
             id="exerciseReps"
-            type="number"
+            type="text"
             value={exerciseReps}
             onChange={(e) => setExerciseReps(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-4">
+            <label htmlFor="exerciseWeight">Weight:</label>
+            <input
+            id="exerciseWeight"
+            type="number"
+            value={exerciseWeight}
+            onChange={(e) => setExerciseWeight(e.target.value)}
             />
           </div>
 
@@ -120,7 +133,7 @@ const Workout = ({ user }) => {
           <ul>
             {exercises.map((exercise, index) => (
             <li key={index}>
-              {exercise.name}: {exercise.sets} x {exercise.reps}
+              {exercise.name}: {exercise.sets} x {exercise.reps} {exercise.weight}lbs
               </li>
             ))}
           </ul>
