@@ -38,7 +38,6 @@ const Login = ({ setUser }) => {
     })
     setRegValues(regInitialState)
     setRegister(false)
-
   }
 
   const handleSubmit = async (e) => {

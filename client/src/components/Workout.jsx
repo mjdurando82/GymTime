@@ -161,6 +161,14 @@ const Workout = () => {
             onChange={(e) => setWorkoutDate(new Date(e.target.value))}
             />
           </div>
+          
+          <div className='mb-4'>
+            <label htmlFor="post">Do you want to post this workout? </label>
+            <select id="post" onChange={(e) => setPost(e.target.value)} value={post}>
+              <option value="true">Yes</option>
+              <option value="false">No</option>
+            </select>
+          </div>
 
           <div className="mb-4">
             <label htmlFor="exerciseName">Exercise Name:</label>
@@ -193,22 +201,18 @@ const Workout = () => {
           </div>
 
         <div className='mb-4'>
-          <label htmlFor="post">Do you want to post this workout? </label>
-          <select id="post" onChange={(e) => setPost(e.target.value)} value={post}>
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-          </select>
-        </div>
-
-        <button className="bg-slate-700 text-white py-3 px-8 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300" onClick={handleAddExercise}>Add Exercise</button>
-
-        <ul>
-          {exercises.map((exercise, index) => (
+          <ul>
+            {exercises.map((exercise, index) => (
             <li key={index}>
               {exercise.name}: {exercise.sets} x {exercise.reps}
-            </li>
-          ))}
-        </ul>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className='mb-4'>
+          <button className="bg-slate-700 text-white py-3 px-8 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300" onClick={handleAddExercise}>Add Exercise</button>
+        </div>
 
         <button className="bg-slate-700 text-white py-3 px-8 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300" type="submit">Save Workout</button>
       </form>
