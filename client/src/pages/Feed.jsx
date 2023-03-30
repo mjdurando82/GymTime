@@ -57,8 +57,8 @@ const Feed = ({ user }) => {
             <p key={comment._id}>{comment.user}: {comment.content}</p>
             {user?.id === comment?.user &&(
               <div>
-              <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded" onClick={(e) => deleteComment(e, comment._id)}>Delete</button>
-              <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded"                           onClick={(e) => openForm(e,comment._id)}>Update</button>
+              <button className="bg-slate-700 text-white py-1 px-1 rounded-md font-small text-sm md:text-sm hover:bg-blue-700 transition-all duration-300 m-2" onClick={(e) => deleteComment(e, comment._id)}>Delete</button>
+              <button className="bg-slate-700 text-white py-1 px-1 rounded-md font-small text-sm md:text-sm hover:bg-blue-700 transition-all duration-300"                      onClick={(e) => openForm(e,comment._id)}>Update</button>
               </div>
             )}
             <div>
