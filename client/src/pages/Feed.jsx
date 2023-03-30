@@ -2,12 +2,27 @@ import axios from "axios"
 import Client from "../services/api"
 import { useEffect, useState } from "react"
 import CommentForm from "../components/CommentForm"
+import UpdateComment from "./UpdateComment"
 
 const Feed = ({ user }) => {
 
 
   const [posts, setPosts] = useState()
 
+  const [showResults, setShowResults] = useState(false)
+
+  const openForm = (e, commentId) => {
+    e.preventDefault()
+    if (!commentId) {
+      setShowResults(true)
+    } else setShowResults(commentId)
+  }
+
+  const closeForm = (e) => {
+    e.preventDefault()
+    setShowResults(false)
+  }
+  
   const getPosts = async () => {
     const response = await axios.get(`http://localhost:3001/workout/posts`)
     setPosts(response.data.workouts)
@@ -31,7 +46,7 @@ const Feed = ({ user }) => {
       <div key={post._id}>
           <p>{post.name}</p>
           <p>Notes: {post.notes}</p>
-          <p>{post.image}</p>
+          <img src={post.image}/>
           <p>{post.date}</p>
           {post?.exercises?.map((exercise) => (
             <p key={exercise._id}>{exercise.name}: {exercise.sets} x {exercise.reps}</p>
@@ -41,8 +56,22 @@ const Feed = ({ user }) => {
             <>
             <p key={comment._id}>{comment.user}: {comment.content}</p>
             {user?.id === comment?.user &&(
-              <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded" onClick={(e) => deleteComment(e, comment._id)}>X</button>
-            )} 
+              <>
+              <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded" onClick={(e) => deleteComment(e, comment._id)}>Delete</button>
+              <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded"                           onClick={(e) => openForm(e,comment._id)}>Update</button>
+              </>
+            )}
+            <>
+            {comment?._id && showResults && (
+                        <UpdateComment
+                          openForm={openForm}
+                          getPosts={getPosts}
+                          comment={comment}
+                          setShowResults={setShowResults}
+                          closeForm={closeForm}
+                        />
+                      )}
+            </> 
             </>
           ))}
           <CommentForm post={post} getPosts={getPosts} user={user}/>
