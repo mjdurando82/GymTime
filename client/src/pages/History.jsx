@@ -13,9 +13,9 @@ const History = ({ user }) => {
   if (user) {
     getWorkoutsForUser()
   }
-    
+  
   return (
-    <div>
+    <div className="pt-16">
       <h3>Past Workouts Here</h3>
         {workouts?.map((workout) => (
       <div key={workout._id}>

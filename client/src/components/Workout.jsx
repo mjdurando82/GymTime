@@ -1,113 +1,218 @@
-import { useState } from "react"
+// import { useState } from "react"
+// import Client from "../services/api"
+// import Exercises from "./Exercises"
+
+
+// const Workout = ({ user, abs, abdductors, addductors, bis, calves, chest, forearms, glutes, hams, lats, lowBack, midBack, neck, quads, traps, tris }) => {
+
+  
+//   const [exercises, setExercises] = useState([])
+  
+//   const initialState = {
+//     user: user?.id,
+//     name: '',
+//     date: '',
+//     notes: '',
+//     image: '',
+//     post: true
+//   }
+  
+//   let exerciseList = []
+  
+//     const [formState, setFormState] = useState(initialState)
+
+//   const handleChange = (e) => {
+//     setFormState({...formState, [e.target.id]: e.target.value})
+//     console.log(exerciseList)
+//   }
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault()
+//     // await Client.post(`http://localhost:3001/workout/new`, formState)
+//     // setFormState(initialState)
+//     exerciseList.push(formState)
+//   }
+
+//   return (
+//     <main className="">
+//       <form onSubmit={handleSubmit}>
+//         <label htmlFor="name">Name: </label>
+//         <input
+//               id="name"
+//               onChange={handleChange}
+//               name="name"
+//               type="text"
+//               placeholder=" ex:Chest Day"
+//               value={formState.name}
+//               />
+//         <label htmlFor="date">Date: </label>
+//         <input
+//               id="date"
+//               onChange={handleChange}
+//               name="date"
+//               type="date"
+//               value={formState.date}
+//               />
+//         <label htmlFor="notes">Notes: </label>
+//         <input
+//               id="notes"
+//               onChange={handleChange}
+//               name="notes"
+//               type="text"
+//               placeholder=" ex:Felt great today!"
+//               value={formState.notes}
+//               />
+//         <label htmlFor="image">Image: </label>
+//         <input
+//               id="image"
+//               onChange={handleChange}
+//               name="image"
+//               type="text"
+//               placeholder="Image Here"
+//               value={formState.image}
+//               />
+//         <label htmlFor="post">Do you want to post this workout? </label>
+//         <select id="post" onChange={handleChange} value={formState.post}>
+//               <option value="true">Yes</option>
+//               <option value="false">No</option>
+//         </select>
+//       </form>
+//       <section>
+//         {exerciseList?.map((exercise)=> (
+//           <>
+//           <p>{exercise.name}</p>
+//           <p>{exercise.sets}</p>
+//           <p>X {exercise.reps}</p>
+//           </>
+//         ))}
+//         <h4>Add Exercises</h4>
+//         <Exercises user={user} exerciseList={exerciseList} setExercises={setExercises}/> 
+//         <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save Workout</button>
+//       </section>
+//     </main>
+//   )
+// }
+
+// export default Workout
+
+import React, { useState, useEffect } from 'react'
+
 import Client from "../services/api"
-import Exercises from "./Exercises"
 
 
-const Workout = ({ user, abs, abdductors, addductors, bis, calves, chest, forearms, glutes, hams, lats, lowBack, midBack, neck, quads, traps, tris }) => {
-
-  
-  const [workout, setWorkout] = useState()
-  
-  const initialState = {
-    user: user?.id,
-    name: '',
-    date: '',
-    exercises: [],
-    notes: '',
-    image: '',
-    post: true
-  }
-  
-    const [formState, setFormState] = useState(initialState)
-
-  const handleChange = (e) => {
-    setFormState({...formState, [e.target.id]: e.target.value})
-    console.log(user)
-  }
+const Workout = () => {
+  const [workoutName, setWorkoutName] = useState('')
+  const [workoutDate, setWorkoutDate] = useState(new Date())
+  const [exerciseName, setExerciseName] = useState('')
+  const [exerciseSets, setExerciseSets] = useState('')
+  const [exerciseReps, setExerciseReps] = useState('')
+  const [exercises, setExercises] = useState([])
+  const [post, setPost] = useState(true)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await Client.post(`http://localhost:3001/workout/new`, formState)
-    setFormState(initialState)
+    const workout = {
+      name: workoutName,
+      date: workoutDate,
+      exercises: exercises.map((exercise) => exercise._id),
+      post: post,
+    }
+    await Client.post(`http://localhost:3001/workout/new`, workout)
+    setWorkoutName('')
+    setWorkoutDate(new Date())
+    setExercises([])
   }
 
 
+  const handleAddExercise = (e) => {
+    e.preventDefault()
+    const exercise = {
+      name: exerciseName,
+      sets: exerciseSets,
+      reps: exerciseReps,
+    }
+    setExercises([...exercises, exercise])
+    setExerciseName('')
+    setExerciseSets('')
+    setExerciseReps('')
+  }
+
   return (
-    <main className="">
+    <div className="container mx-auto">
+      <h2 className="text-2xl font-bold mb-4 pt-16">Workout Tracker</h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name: </label>
-        <input
-              id="name"
-              onChange={handleChange}
-              name="name"
-              type="text"
-              placeholder=" ex:Chest Day"
-              value={formState.name}
-              />
-        <label htmlFor="date">Date: </label>
-        <input
-              id="date"
-              onChange={handleChange}
-              name="date"
-              type="date"
-              value={formState.date}
-              />
-        <label htmlFor="exercises">Exercises: </label>
-        <input
-              id="exercises"
-              onChange={handleChange}
-              name="exercises"
-              type="text"
-              placeholder="Choose Your Exercises"
-              value={formState.exercises}
-              />
-        <label htmlFor="notes">Notes: </label>
-        <input
-              id="notes"
-              onChange={handleChange}
-              name="notes"
-              type="text"
-              placeholder=" ex:Felt great today!"
-              value={formState.notes}
-              />
-        <label htmlFor="image">Image: </label>
-        <input
-              id="image"
-              onChange={handleChange}
-              name="image"
-              type="text"
-              placeholder="Image Here"
-              value={formState.image}
-              />
-        <label htmlFor="post">Do you want to post this workout? </label>
-        <select id="post" onChange={handleChange} value={formState.post}>
-              <option value="true">Yes</option>
-              <option value="false">No</option>
-        </select>
-        <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save Workout</button>
+
+        <div className="mb-4">
+          <label htmlFor="workoutName">Workout Name:</label>
+          <input
+          id="workoutName"
+          type="text"
+          value={workoutName}
+          onChange={(e) => setWorkoutName(e.target.value)}
+          />
+          </div>
+
+          <div className="mb-4">
+            <label htmlFor="workoutDate">Workout Date:</label>
+            <input
+            id="workoutDate"
+            type="date"
+            value={workoutDate.toISOString().slice(0, 10)}
+            onChange={(e) => setWorkoutDate(new Date(e.target.value))}
+            />
+          </div>
+
+          <div className="mb-4">
+            <label htmlFor="exerciseName">Exercise Name:</label>
+            <input
+            id="exerciseName"
+            type="text"
+            value={exerciseName}
+            onChange={(e) => setExerciseName(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-4">
+            <label htmlFor="exerciseSets">Sets:</label>
+            <input
+            id="exerciseSets"
+            type="number"
+            value={exerciseSets}
+            onChange={(e) => setExerciseSets(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-4">
+            <label htmlFor="exerciseReps">Reps:</label>
+            <input
+            id="exerciseReps"
+            type="number"
+            value={exerciseReps}
+            onChange={(e) => setExerciseReps(e.target.value)}
+            />
+          </div>
+
+        <div className='mb-4'>
+          <label htmlFor="post">Do you want to post this workout? </label>
+          <select id="post" onChange={(e) => setPost(e.target.value)} value={post}>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+        </div>
+
+        <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded" onClick={handleAddExercise}>Add Exercise</button>
+
+        <ul>
+          {exercises.map((exercise, index) => (
+            <li key={index}>
+              {exercise.name}: {exercise.sets} x {exercise.reps}
+            </li>
+          ))}
+        </ul>
+
+        <button className="dark:bg-blue-900 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded" type="submit">Save Workout</button>
       </form>
-      <section>
-        <h4>Add Exercises</h4>
-        <Exercises                 
-                abs={abs}
-                abdductors={abdductors}
-                addductors={addductors}
-                bis={bis}
-                calves={calves}
-                chest={chest}
-                forearms={forearms}
-                glutes={glutes}
-                hams={hams}
-                lats={lats}
-                lowBack={lowBack}
-                midBack={midBack}
-                neck={neck}
-                quads={quads}
-                traps={traps}
-                tris={tris}
-                />
-      </section>
-    </main>
+    </div>
   )
 }
 

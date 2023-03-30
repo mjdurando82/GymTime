@@ -10,7 +10,7 @@ const Login = ({ setUser }) => {
 
   let navigate = useNavigate()
 
-  let initialState = { email: '', password: '' }
+  let initialState = { username: '', password: '' }
 
   let regInitialState = {
   username: '',
@@ -58,7 +58,7 @@ const Login = ({ setUser }) => {
   }
 
   return (
-    <div>
+    <div className='pt-16'>
     <div>
       <div>
         {!register && (

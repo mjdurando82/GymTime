@@ -29,8 +29,22 @@ const getUserComments = async (req, res) => {
   }
 }
 
+const getUserById = async (req, res) => {
+  try {
+    const { id } = req.params
+    const user = await User.findById(id)
+    if (user) {
+      return res.status(200).json({ user })
+    }
+    return res.status(404).send('User with that id not found')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 module.exports = {
   GetUsers,
   DeleteUser,
-  getUserComments
+  getUserComments,
+  getUserById
 }
