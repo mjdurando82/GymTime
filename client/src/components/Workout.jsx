@@ -100,7 +100,7 @@ import React, { useState, useEffect } from 'react'
 import Client from "../services/api"
 
 
-const Workout = () => {
+const Workout = ({ user }) => {
   const [workoutName, setWorkoutName] = useState('')
   const [workoutDate, setWorkoutDate] = useState(new Date())
   const [exerciseName, setExerciseName] = useState('')
@@ -108,13 +108,16 @@ const Workout = () => {
   const [exerciseReps, setExerciseReps] = useState('')
   const [exercises, setExercises] = useState([])
   const [post, setPost] = useState(true)
+  const [notes, setNotes] = useState()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     const workout = {
+      user: user.id,
       name: workoutName,
       date: workoutDate,
-      exercises: exercises.map((exercise) => exercise._id),
+      exercises: exercises,
+      notes: notes,
       post: post,
     }
     await Client.post(`http://localhost:3001/workout/new`, workout)
@@ -160,6 +163,16 @@ const Workout = () => {
             value={workoutDate.toISOString().slice(0, 10)}
             onChange={(e) => setWorkoutDate(new Date(e.target.value))}
             />
+          </div>
+
+          <div className="mb-4">
+          <label htmlFor="notes">Notes:</label>
+          <input
+          id="notes"
+          type="text"
+          value={notes}
+          onChange={(e) => setNotes(e.target.value)}
+          />
           </div>
           
           <div className='mb-4'>

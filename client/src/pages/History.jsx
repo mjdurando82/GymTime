@@ -10,17 +10,21 @@ const History = ({ user }) => {
     setWorkouts(response.data.workouts)
   }
 
-  if (user) {
+  useEffect(() => {
     getWorkoutsForUser()
-  }
+  }, [])
   
   return (
-    <div className="pt-16">
-      <h3>Past Workouts Here</h3>
+    <div>
+      <h2 className="text-2xl font-bold mb-4 pt-16">Your Workout History</h2>
         {workouts?.map((workout) => (
       <div key={workout._id}>
           <p>{workout.name}</p>
-          <p>{workout.exercises}</p>
+          {workout.exercises.map((exercise) => (
+            <>
+          <p>{exercise.name} {exercise.sets} x {exercise.reps}</p>
+            </>
+          ))}
           <p>{workout.notes}</p>
           <p>{workout.image}</p>
           <p>{workout.date}</p>

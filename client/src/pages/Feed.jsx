@@ -41,7 +41,7 @@ const Feed = ({ user }) => {
 
   return (
     <div>
-      <h3 className="pt-16">Posts Here</h3>
+      <h2 className="text-2xl font-bold mb-4 pt-16">Posted Workouts</h2>
         {posts?.map((post) => (
       <div key={post._id}>
           <p>{post.name}</p>
