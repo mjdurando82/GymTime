@@ -16,10 +16,7 @@ const Workout = ({ user }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const workout = {
-      user: {
-        id: user.id,
-        username: user.username,
-      },
+      user: user.id,
       name: workoutName,
       date: workoutDate,
       exercises: exercises,
