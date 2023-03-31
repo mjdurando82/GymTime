@@ -1,6 +1,6 @@
 const Comment = require('../models/comments')
 const Workout = require('../models/workouts')
-
+const User = require('../models/user')
 const GetAllComments = async (req, res) => {
   try {
     let comments = await Comment.find()
@@ -22,7 +22,7 @@ const GetCommentsForWorkout = async (req, res) => {
 const CreateComment = async (req, res) => {
   try {
     const comment = await new Comment(req.body)
-    await comment.save()
+    comment.save()
     const workout = await Workout.findById(req.body.workout)
     workout.comments.push(comment.id)
     await workout.save()
