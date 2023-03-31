@@ -62,7 +62,7 @@ const Login = ({ setUser }) => {
     <div className='bg-slate-400 min-h-screen pt-16'>
       <h1 className='text-5xl font-bold text-center mb-8'>STRENGTH</h1>
       <h5 className='text-xl font-bold text-center mb-2'>Workout Smarter</h5>
-      <img className='mx-auto mb-6 w-1/3' src={logo} />
+      <img className='mx-auto mb-6 w-1/4' src={logo} />
 
     <div>
       <div>
@@ -98,8 +98,8 @@ const Login = ({ setUser }) => {
             Login
           </button>
           </div>
-          <p className='text-gray-500 cursor-pointer hover:underline' onClick={toggleForm}>Don't Have An Account Click Here To Register!</p>
-          <div className='mt-4'>
+          <p className=' text-center text-gray-500 cursor-pointer hover:underline' onClick={toggleForm}> Don't Have An Account Click Here To Register!</p>
+          <div className='text-center mt-4'>
           <p>email: admin@admin.com</p>
           <p>password: admin</p>
           </div>
@@ -170,7 +170,7 @@ const Login = ({ setUser }) => {
             Sign In
           </button>
           </div>
-          <p className='text-gray-500 cursor-pointer hover:underline' onClick={toggleForm}>Already Have An Account Click Here To Login!</p>
+          <p className='text-center text-gray-500 cursor-pointer hover:underline' onClick={toggleForm}>Already Have An Account Click Here To Login!</p>
         </form>
       )}
       </div>
