@@ -20,8 +20,8 @@ const Home = ({ user }) => {
     <div className='bg-slate-400 min-h-screen flex flex-col justify-center items-center bg-gray-100'>
       <img
         src='https://img.freepik.com/free-photo/low-angle-view-unrecognizable-muscular-build-man-preparing-lifting-barbell-health-club_637285-2497.jpg'
-        alt='Fitness App'
-        className='mb-8 w-64 md:w-96'
+        alt='Weight Lifter'
+        className='mb-8 w-64 md:w-96 rounded'
       />
       {username && (
         <h1 className='text-4xl md:text-5xl font-bold text-gray-800 mb-8'>

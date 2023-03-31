@@ -1,7 +1,9 @@
+import logo from '../images/logo.png'
 import { useState } from 'react'
 import { SignInUser } from '../services/Auth'
 import { RegisterUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
+
 
 
 const Login = ({ setUser }) => {
@@ -58,6 +60,10 @@ const Login = ({ setUser }) => {
 
   return (
     <div className='bg-slate-400 min-h-screen pt-16'>
+      <h1 className='text-5xl font-bold text-center mb-8'>STRENGTH</h1>
+      <h5 className='text-xl font-bold text-center mb-2'>Workout Smarter</h5>
+      <img className='mx-auto mb-6 w-1/3' src={logo} />
+
     <div>
       <div>
         {!register && (
