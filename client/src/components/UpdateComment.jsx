@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useParams, useNavigate } from 'react-router-dom'
 import Client from '../services/api'
 
-const UpdateComment = ({ comment, setShowResults, closeForm, getPosts }) => {
+const UpdateComment = ({ comment, closeForm, getPosts, setEditCommentId }) => {
   const [updateComment, setUpdateComment] = useState({
     content: ''
   })
@@ -21,8 +21,8 @@ const UpdateComment = ({ comment, setShowResults, closeForm, getPosts }) => {
       `http://localhost:3001/comment/update/${comment._id}`,
       updateComment
     )
-    setShowResults(false)
     getPosts()
+    setEditCommentId(null)
   }
 
   return (

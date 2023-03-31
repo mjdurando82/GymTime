@@ -8,19 +8,16 @@ const Feed = ({ user }) => {
 
 
   const [posts, setPosts] = useState()
-
-  const [showResults, setShowResults] = useState(false)
+  const [editCommentId, setEditCommentId] = useState(null)
 
   const openForm = (e, commentId) => {
     e.preventDefault()
-    if (!commentId) {
-      setShowResults(true)
-    } else setShowResults(commentId)
+    setEditCommentId(commentId)
   }
 
   const closeForm = (e) => {
     e.preventDefault()
-    setShowResults(false)
+    setEditCommentId(null)
   }
   
   const getPosts = async () => {
@@ -71,14 +68,13 @@ const Feed = ({ user }) => {
                       <button className="bg-slate-700 text-white py-1 px-1 rounded-md font-small text-sm md:text-sm hover:bg-blue-700 transition-all duration-300"onClick={(e) => openForm(e,comment._id)}>Edit</button>
                     </div>
                   )}
-                  {comment?._id && showResults && (
+                  {comment?._id === editCommentId && (
                     <div className="mt-2">
                       <UpdateComment
-                        openForm={openForm}
                         getPosts={getPosts}
                         comment={comment}
-                        setShowResults={setShowResults}
                         closeForm={closeForm}
+                        setEditCommentId={setEditCommentId}
                       />
                     </div>
                   )}
