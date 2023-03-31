@@ -25,6 +25,7 @@ const getPosts = async (req, res) => {
     const workouts = await Workout.find({ post: true })
       .populate('comments')
       .populate('exercises')
+      .populate('user')
     return res.status(200).json({ workouts })
   } catch (error) {
     return res.status(500).send(error.message)
