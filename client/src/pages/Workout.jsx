@@ -30,6 +30,8 @@ const Workout = ({ user }) => {
     setWorkoutName('')
     setWorkoutDate(new Date())
     setExercises([])
+    setImage()
+    setNotes()
   }
 
 
