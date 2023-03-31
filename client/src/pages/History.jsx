@@ -81,27 +81,29 @@ const History = ({ user }) => {
   return (
     <div className='bg-slate-400 min-h-screen'>
       <h2 className="text-2xl font-bold mb-4 pt-16">Your Workout History</h2>
-      {workouts?.map((workout) => (
-        <div className="bg-white rounded-lg p-4 mb-4 flex items-center" key={workout._id}>
-          <img className="my-2 ml-4 mr-8" src={workout.image} />
-          <div className="flex-1">
-            <p className="mb-1">{new Date(workout.date).toLocaleDateString()}</p>
-            <p className="font-medium mb-2">{workout.name}</p>
-            {workout.exercises.map((exercise) => (
-              <div key={exercise._id}>
-                <p className="text-gray-800">{exercise.name} {exercise.sets} x {exercise.reps}</p>
-              </div>
-            ))}
-            <p className="text-gray-800">Notes: {workout.notes}</p>
-            {buttons && (
-              <div>
-                <button className="bg-red-500 text-white py-1 px-1 rounded-md text-sm mr-2 hover:bg-rose-700 transition-all duration-300" onClick={(e) => deleteWorkout(e, workout._id)}>Delete</button>
-                <button className="bg-slate-700 text-white py-1 px-1 rounded-md font-small text-sm md:text-sm hover:bg-blue-700 transition-all duration-300" onClick={()=>toggleUpdate()}>Edit</button>
-              </div>
-            )}
+      <div className="flex flex-wrap justify-evenly m-5"> {/* Added classes */}
+        {workouts?.map((workout) => (
+          <div className="bg-white rounded-lg p-4 mb-4 flex items-center" key={workout._id}>
+            <img className="my-2 ml-4 mr-8 rounded" src={workout.image} />
+            <div className="flex-1">
+              <p className="mb-1">{new Date(workout.date).toLocaleDateString()}</p>
+              <p className="font-medium mb-2">{workout.name}</p>
+              {workout.exercises.map((exercise) => (
+                <div key={exercise._id}>
+                  <p className="text-gray-800">{exercise.name} {exercise.sets} x {exercise.reps}</p>
+                </div>
+              ))}
+              <p className="text-gray-800">Notes: {workout.notes}</p>
+              {buttons && (
+                <div>
+                  <button className="bg-red-500 text-white py-1 px-1 rounded-md text-sm mr-2 hover:bg-rose-700 transition-all duration-300" onClick={(e) => deleteWorkout(e, workout._id)}>Delete</button>
+                  <button className="bg-slate-700 text-white py-1 px-1 rounded-md font-small text-sm md:text-sm hover:bg-blue-700 transition-all duration-300" onClick={()=>toggleUpdate()}>Edit</button>
+                </div>
+              )}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
       <div>
         {!buttons && (
           <button onClick={()=>toggleButtons()} className="bg-slate-700 text-white py-1 px-2 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300">Open Editor</button>
@@ -109,7 +111,7 @@ const History = ({ user }) => {
         {buttons && (
           <button onClick={()=>toggleButtons()} className="bg-slate-700 text-white py-1 px-2 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300">Close Editor</button>
         )}
-      </div>
+      </div>  
       {updating &&(
         <UpdateWorkout getWorkoutsForUser={getUserWorkouts}/>
       )}
