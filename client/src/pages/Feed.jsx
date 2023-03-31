@@ -40,7 +40,7 @@ const Feed = ({ user }) => {
   }
 
   return (
-    <div className="pt-16 bg-gray-100 min-h-screen">
+    <div className="pt-16 bg-slate-400 min-h-screen">
       <div className="max-w-xl mx-auto py-8">
         <h2 className="text-3xl font-bold mb-4">Posted Workouts</h2>
         {posts?.map((post) => (
