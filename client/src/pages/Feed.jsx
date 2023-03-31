@@ -2,7 +2,7 @@ import axios from "axios"
 import Client from "../services/api"
 import { useEffect, useState } from "react"
 import CommentForm from "../components/CommentForm"
-import UpdateComment from "./UpdateComment"
+import UpdateComment from "../components/UpdateComment"
 
 const Feed = ({ user }) => {
 
