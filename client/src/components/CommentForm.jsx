@@ -35,7 +35,7 @@ const CommentForm = ({ user, post, getPosts }) => {
           Leave a Comment: 
         </label>
         <input
-          className="inputfield"
+          className='appearance-none border rounded py-2 px-3 text-gray-700 leading-tight'
           type="text"
           id="content"
           onChange={handleChange}

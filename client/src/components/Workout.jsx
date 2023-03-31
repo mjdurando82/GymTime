@@ -13,6 +13,7 @@ const Workout = ({ user }) => {
   const [exercises, setExercises] = useState([])
   const [post, setPost] = useState(true)
   const [notes, setNotes] = useState()
+  const [image, setImage] = useState()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -20,9 +21,10 @@ const Workout = ({ user }) => {
       user: user.id,
       name: workoutName,
       date: workoutDate,
-      exercises: exercises,
       notes: notes,
+      image: image,
       post: post,
+      exercises: exercises
     }
     await Client.post(`http://localhost:3001/workout/new`, workout)
     setWorkoutName('')
@@ -80,6 +82,16 @@ const Workout = ({ user }) => {
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
           />
+
+          </div>
+          <div className="mb-4 font-bold text-gray-800">
+          <label htmlFor="notes">Image:</label>
+          <input
+          id="image"
+          type="text"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+          />
           </div>
           
           <div className='mb-4 font-bold text-gray-800'>
@@ -131,9 +143,10 @@ const Workout = ({ user }) => {
           </div>
 
         <div className='mb-4'>
+          <p className='font-bold text-gray-800'>Exercises</p>
           <ul>
-            {exercises.map((exercise, index) => (
-              <li key={index}>
+            {exercises.map((exercise) => (
+              <li key={exercise.id}>
               {exercise.name}: {exercise.sets} x {exercise.reps} {exercise.weight}lbs
               </li>
             ))}
