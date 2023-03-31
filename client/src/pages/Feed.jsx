@@ -50,12 +50,12 @@ const Feed = ({ user }) => {
             </div>
             <p className="font-bold text-lg mb-2">{post.name}</p>
             {post.image && (
-              <img className="w-full h-64 object-cover mb-4" src={post.image} alt={post.name} />
+              <img className="w-full h-64 object-contain mb-4" src={post.image} alt={post.name} />
             )}
             <p className="text-gray-700 mb-2">{post.notes}</p>
             <p className="text-gray-500 text-sm mb-2">{new Date(post.date).toLocaleDateString()}</p>
             {post?.exercises?.map((exercise) => (
-              <p key={exercise._id} className="text-gray-700 mb-1">
+              <p key={exercise.name} className="text-gray-700 mb-1">
                 <span className="font-medium">{exercise.name}:</span> {exercise.sets} x {exercise.reps}
               </p>
             ))}

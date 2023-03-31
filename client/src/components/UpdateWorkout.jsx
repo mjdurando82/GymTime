@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import Client from "../services/api"
 
 
-const Workout = ({ user }) => {
+const UpdateWorkout = ({ user, getUserWorkouts }) => {
   const [workoutName, setWorkoutName] = useState('')
   const [workoutDate, setWorkoutDate] = useState(new Date())
   const [exerciseName, setExerciseName] = useState('')
@@ -15,22 +15,24 @@ const Workout = ({ user }) => {
   const [notes, setNotes] = useState()
   const [image, setImage] = useState()
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    const workout = {
-      user: user.id,
-      name: workoutName,
-      date: workoutDate,
-      notes: notes,
-      image: image,
-      post: post,
-      exercises: exercises
-    }
-    await Client.post(`http://localhost:3001/workout/new`, workout)
-    setWorkoutName('')
-    setWorkoutDate(new Date())
-    setExercises([])
+
+let workoutId 
+
+const updateWorkout = async (e, workoutId) => {
+  e.preventDefault()
+  const updatedWorkout = {
+    user: user.id,
+    name: workoutName,
+    date: workoutDate,
+    notes: notes,
+    image: image,
+    post: post,
+    exercises: exercises
   }
+      await Client.put(`http://localhost:3001/workout/update/${workoutId}`, updatedWorkout)
+      getUserWorkouts()
+    }
+  
 
 
   const handleAddExercise = (e) => {
@@ -47,20 +49,12 @@ const Workout = ({ user }) => {
     setExerciseReps('')
     setExerciseWeight('')
   }
-  
-  const removeExercise = (index) => {
-    const removed = exercises.filter((_, i) => i !== index)
-    setExercises(removed)
-  }
 
   return (
-  <div className='bg-slate-400 min-h-screen'>
-    <div className="container mx-auto px-4 py-8">
-      <h2 className="text-2xl font-bold mb-4 pt-16 text-gray-900">Workout Tracker</h2>
-      <form onSubmit={handleSubmit}>
-
+  <div>
+      <form onSubmit={()=>updateWorkout(workoutId)}>
         <div className="mb-4 font-bold text-gray-800">
-          <label className='block font-bold text-gray-900'  htmlFor="workoutName">Workout Name:</label>
+          <label  htmlFor="workoutName">Workout Name:</label>
           <input
           className='appearance-none border rounded text-gray-700 leading-tight'
           id="workoutName"
@@ -71,7 +65,7 @@ const Workout = ({ user }) => {
           </div>
 
           <div className="mb-4 font-bold text-gray-800">
-            <label className='block font-bold text-gray-900' htmlFor="workoutDate">Workout Date:</label>
+            <label htmlFor="workoutDate">Workout Date:</label>
             <input
             className='appearance-none border rounded text-gray-700 leading-tight'
             id="workoutDate"
@@ -82,7 +76,7 @@ const Workout = ({ user }) => {
           </div>
 
           <div className="mb-4 font-bold text-gray-800">
-          <label className='block font-bold text-gray-900' htmlFor="notes">Notes:</label>
+          <label htmlFor="notes">Notes:</label>
           <input
           className='appearance-none border rounded text-gray-700 leading-tight'
           id="notes"
@@ -93,7 +87,7 @@ const Workout = ({ user }) => {
 
           </div>
           <div className="mb-4 font-bold text-gray-800">
-          <label className='block font-bold text-gray-900' htmlFor="notes">Image:</label>
+          <label htmlFor="notes">Image:</label>
           <input
           className='appearance-none border rounded text-gray-700 leading-tight'
           id="image"
@@ -104,7 +98,7 @@ const Workout = ({ user }) => {
           </div>
           
           <div className='mb-4 font-bold text-gray-800'>
-            <label className='block font-bold text-gray-900' htmlFor="post">Do you want to post this workout? </label>
+            <label htmlFor="post">Do you want to post this workout? </label>
             <select className='border rounded text-gray-700 leading-tight'
             id="post" onChange={(e) => setPost(e.target.value)} value={post}>
               <option value="true">Yes</option>
@@ -113,7 +107,7 @@ const Workout = ({ user }) => {
           </div>
 
           <div className="mb-4 font-bold text-gray-800">
-            <label className='block font-bold text-gray-900' htmlFor="exerciseName">Exercise Name:</label>
+            <label htmlFor="exerciseName">Exercise Name:</label>
             <input
             className='appearance-none border rounded text-gray-700 leading-tight'
             id="exerciseName"
@@ -124,7 +118,7 @@ const Workout = ({ user }) => {
           </div>
 
           <div className="mb-4 font-bold text-gray-800">
-            <label className='block font-bold text-gray-900' htmlFor="exerciseSets">Sets:</label>
+            <label htmlFor="exerciseSets">Sets:</label>
             <input
             className='appearance-none border rounded text-gray-700 leading-tight'
             id="exerciseSets"
@@ -135,7 +129,7 @@ const Workout = ({ user }) => {
           </div>
 
           <div className="mb-4 font-bold text-gray-800">
-            <label className='block font-bold text-gray-900' htmlFor="exerciseReps">Reps:</label>
+            <label htmlFor="exerciseReps">Reps:</label>
             <input
             className='appearance-none border rounded text-gray-700 leading-tight'
             id="exerciseReps"
@@ -146,7 +140,7 @@ const Workout = ({ user }) => {
           </div>
 
           <div className="mb-4 font-bold text-gray-800">
-            <label className='block font-bold text-gray-900' htmlFor="exerciseWeight">Weight:</label>
+            <label htmlFor="exerciseWeight">Weight:</label>
             <input
             className='appearance-none border rounded text-gray-700 leading-tight'
             id="exerciseWeight"
@@ -158,16 +152,13 @@ const Workout = ({ user }) => {
 
         <div className='mb-4'>
           <p className='font-bold text-gray-800'>Exercises</p>
-          <div>
-            {exercises.map((exercise, index) => (
-              <div className='flex'>
-              <p key={exercise.id}>
+          <ul>
+            {exercises.map((exercise) => (
+              <li key={exercise.id}>
               {exercise.name}: {exercise.sets} x {exercise.reps} {exercise.weight}lbs
-              </p>
-              <button className="ml-4 bg-red-500 text-white py-1 px-1 rounded-md text-sm mr-2 hover:bg-rose-700 transition-all duration-300" onClick={()=>removeExercise(index)}>X</button>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
 
         <div className='mb-4'>
@@ -176,9 +167,8 @@ const Workout = ({ user }) => {
 
         <button className="bg-slate-700 text-white py-3 px-8 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300" type="submit">Save Workout</button>
       </form>
-    </div>
 </div>
   )
 }
 
-export default Workout
+export default UpdateWorkout
