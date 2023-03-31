@@ -52,8 +52,8 @@ const Workout = ({ user }) => {
       <h2 className="text-2xl font-bold mb-4 pt-16">Workout Tracker</h2>
       <form onSubmit={handleSubmit}>
 
-        <div className="mb-4">
-          <label htmlFor="workoutName">Workout Name:</label>
+        <div className="mb-4 font-bold text-gray-800">
+          <label  htmlFor="workoutName">Workout Name:</label>
           <input
           id="workoutName"
           type="text"
@@ -62,7 +62,7 @@ const Workout = ({ user }) => {
           />
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 font-bold text-gray-800">
             <label htmlFor="workoutDate">Workout Date:</label>
             <input
             id="workoutDate"
@@ -72,7 +72,7 @@ const Workout = ({ user }) => {
             />
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 font-bold text-gray-800">
           <label htmlFor="notes">Notes:</label>
           <input
           id="notes"
@@ -82,7 +82,7 @@ const Workout = ({ user }) => {
           />
           </div>
           
-          <div className='mb-4'>
+          <div className='mb-4 font-bold text-gray-800'>
             <label htmlFor="post">Do you want to post this workout? </label>
             <select id="post" onChange={(e) => setPost(e.target.value)} value={post}>
               <option value="true">Yes</option>
@@ -90,7 +90,7 @@ const Workout = ({ user }) => {
             </select>
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 font-bold text-gray-800">
             <label htmlFor="exerciseName">Exercise Name:</label>
             <input
             id="exerciseName"
@@ -100,7 +100,7 @@ const Workout = ({ user }) => {
             />
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 font-bold text-gray-800">
             <label htmlFor="exerciseSets">Sets:</label>
             <input
             id="exerciseSets"
@@ -110,7 +110,7 @@ const Workout = ({ user }) => {
             />
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 font-bold text-gray-800">
             <label htmlFor="exerciseReps">Reps:</label>
             <input
             id="exerciseReps"
@@ -120,7 +120,7 @@ const Workout = ({ user }) => {
             />
           </div>
 
-          <div className="mb-4">
+          <div className="mb-4 font-bold text-gray-800">
             <label htmlFor="exerciseWeight">Weight:</label>
             <input
             id="exerciseWeight"

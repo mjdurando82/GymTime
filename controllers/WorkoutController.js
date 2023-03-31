@@ -3,7 +3,7 @@ const Workout = require('../models/workouts')
 const createWorkout = async (req, res) => {
   try {
     const workout = await new Workout(req.body)
-    await workout.save()
+    await (await workout.save()).populate('user')
     return res.status(201).json({
       workout
     })
