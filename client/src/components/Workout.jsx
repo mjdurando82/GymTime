@@ -57,6 +57,7 @@ const Workout = ({ user }) => {
         <div className="mb-4 font-bold text-gray-800">
           <label  htmlFor="workoutName">Workout Name:</label>
           <input
+          className='appearance-none border rounded text-gray-700 leading-tight'
           id="workoutName"
           type="text"
           value={workoutName}
@@ -67,6 +68,7 @@ const Workout = ({ user }) => {
           <div className="mb-4 font-bold text-gray-800">
             <label htmlFor="workoutDate">Workout Date:</label>
             <input
+            className='appearance-none border rounded text-gray-700 leading-tight'
             id="workoutDate"
             type="date"
             value={workoutDate.toISOString().slice(0, 10)}
@@ -77,6 +79,7 @@ const Workout = ({ user }) => {
           <div className="mb-4 font-bold text-gray-800">
           <label htmlFor="notes">Notes:</label>
           <input
+          className='appearance-none border rounded text-gray-700 leading-tight'
           id="notes"
           type="text"
           value={notes}
@@ -87,6 +90,7 @@ const Workout = ({ user }) => {
           <div className="mb-4 font-bold text-gray-800">
           <label htmlFor="notes">Image:</label>
           <input
+          className='appearance-none border rounded text-gray-700 leading-tight'
           id="image"
           type="text"
           value={image}
@@ -96,7 +100,8 @@ const Workout = ({ user }) => {
           
           <div className='mb-4 font-bold text-gray-800'>
             <label htmlFor="post">Do you want to post this workout? </label>
-            <select id="post" onChange={(e) => setPost(e.target.value)} value={post}>
+            <select className='border rounded text-gray-700 leading-tight'
+            id="post" onChange={(e) => setPost(e.target.value)} value={post}>
               <option value="true">Yes</option>
               <option value="false">No</option>
             </select>
@@ -105,6 +110,7 @@ const Workout = ({ user }) => {
           <div className="mb-4 font-bold text-gray-800">
             <label htmlFor="exerciseName">Exercise Name:</label>
             <input
+            className='appearance-none border rounded text-gray-700 leading-tight'
             id="exerciseName"
             type="text"
             value={exerciseName}
@@ -115,6 +121,7 @@ const Workout = ({ user }) => {
           <div className="mb-4 font-bold text-gray-800">
             <label htmlFor="exerciseSets">Sets:</label>
             <input
+            className='appearance-none border rounded text-gray-700 leading-tight'
             id="exerciseSets"
             type="number"
             value={exerciseSets}
@@ -125,6 +132,7 @@ const Workout = ({ user }) => {
           <div className="mb-4 font-bold text-gray-800">
             <label htmlFor="exerciseReps">Reps:</label>
             <input
+            className='appearance-none border rounded text-gray-700 leading-tight'
             id="exerciseReps"
             type="text"
             value={exerciseReps}
@@ -135,6 +143,7 @@ const Workout = ({ user }) => {
           <div className="mb-4 font-bold text-gray-800">
             <label htmlFor="exerciseWeight">Weight:</label>
             <input
+            className='appearance-none border rounded text-gray-700 leading-tight'
             id="exerciseWeight"
             type="number"
             value={exerciseWeight}

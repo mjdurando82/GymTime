@@ -27,13 +27,12 @@ const UpdateComment = ({ comment, setShowResults, closeForm, getPosts }) => {
 
   return (
     <div className="comment-form-container">
-      <form onSubmit={handleUpdate} className="comment-form">
+      <form onSubmit={handleUpdate}>
         <label htmlFor="content">Update Your Comment</label>
         <textarea
+          className='appearance-none border rounded text-gray-700 leading-tight'
           type="text"
           id="content"
-          cols="80"
-          rows="2"
           onChange={handleChangeUpdate}
           value={updateComment.content}
         />
