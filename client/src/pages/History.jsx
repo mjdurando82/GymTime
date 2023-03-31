@@ -6,7 +6,7 @@ const History = ({ user }) => {
 
   const [workouts, setWorkouts] = useState()
   const [buttons, setButtons] = useState(false)
-  const [updating, setUpdating] = useState(false)
+  const [editWorkoutId, setEditWorkoutId] = useState(null)
   const [workoutName, setWorkoutName] = useState('')
   const [workoutDate, setWorkoutDate] = useState(new Date())
   const [exerciseName, setExerciseName] = useState('')
@@ -35,14 +35,18 @@ const History = ({ user }) => {
       setButtons(true)
     }
     else setButtons(false)
+    setEditWorkoutId(null)
   }
 
-  const toggleUpdate = () => {
-    if (updating === false){
-      setUpdating(true)
+  const openUpdate = (e, workoutId) => {
+    e.preventDefault()
+    setEditWorkoutId(workoutId)
     }
-    else setUpdating(false)
+
+  const closeUpdate = (e) => {
+    setEditWorkoutId(null)
   }
+
 
   const handleAddExercise = (e) => {
     e.preventDefault()
@@ -82,7 +86,8 @@ const History = ({ user }) => {
     }
         await Client.put(`http://localhost:3001/workout/update/${workoutId}`, updatedWorkout)
         getUserWorkouts()
-        setUpdating(false)
+        setEditWorkoutId(null)
+        closeUpdate()
   }
   
   return (
@@ -104,12 +109,12 @@ const History = ({ user }) => {
               {buttons && (
                 <div>
                   <button className="bg-red-500 text-white py-1 px-1 rounded-md text-sm mr-2 hover:bg-rose-700 transition-all duration-300" onClick={(e) => deleteWorkout(e, workout._id)}>Delete</button>
-                  <button className="bg-slate-700 text-white py-1 px-1 rounded-md font-small text-sm md:text-sm hover:bg-blue-700 transition-all duration-300" onClick={()=>toggleUpdate()}>Edit</button>
+                  <button className="bg-slate-700 text-white py-1 px-1 rounded-md font-small text-sm md:text-sm hover:bg-blue-700 transition-all duration-300" onClick={(e)=>openUpdate(e, workout._id)}>Edit</button>
                 </div>
               )}
             </div>
         <div>
-          {updating && (
+          {workout?._id === editWorkoutId && (
             <form onSubmit={(e)=>updateWorkout(e, workout._id)}>
 
             <div className="mb-4 font-bold text-gray-800">

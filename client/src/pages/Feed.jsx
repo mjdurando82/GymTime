@@ -8,6 +8,7 @@ const Feed = ({ user }) => {
 
 
   const [posts, setPosts] = useState()
+  
   const [editCommentId, setEditCommentId] = useState(null)
 
   const openForm = (e, commentId) => {
