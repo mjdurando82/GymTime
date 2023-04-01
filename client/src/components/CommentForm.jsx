@@ -41,7 +41,7 @@ const CommentForm = ({ user, post, getPosts }) => {
           onChange={handleChange}
           value={formState.content}
         />
-        <button className="bg-slate-700 text-white py-1 px-1 rounded-md font-small text-sm md:text-sm hover:bg-blue-700 transition-all duration-300" type="submit">
+        <button className="ml-2 bg-slate-700 text-white py-1 px-1 rounded-md font-small text-sm md:text-sm hover:bg-blue-700 transition-all duration-300" type="submit">
           Add Comment
         </button>
       </form>

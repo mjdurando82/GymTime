@@ -12,8 +12,8 @@ const Workout = ({ user }) => {
   const [exerciseWeight, setExerciseWeight] = useState('')
   const [exercises, setExercises] = useState([])
   const [post, setPost] = useState(true)
-  const [notes, setNotes] = useState()
-  const [image, setImage] = useState()
+  const [notes, setNotes] = useState('')
+  const [image, setImage] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -30,8 +30,8 @@ const Workout = ({ user }) => {
     setWorkoutName('')
     setWorkoutDate(new Date())
     setExercises([])
-    setImage()
-    setNotes()
+    setImage('')
+    setNotes('')
   }
 
 
@@ -51,8 +51,8 @@ const Workout = ({ user }) => {
   }
   
   const removeExercise = (index) => {
-    const removed = exercises.filter((_, i) => i !== index)
-    setExercises(removed)
+    const remove = exercises.filter((_, i) => i !== index)
+    setExercises(remove)
   }
 
   return (

@@ -1,6 +1,6 @@
 import Client from "../services/api"
 import { useEffect, useState } from "react"
-import UpdateWorkout from "../components/UpdateWorkout"
+
 
 const History = ({ user }) => {
 
@@ -19,10 +19,8 @@ const History = ({ user }) => {
   const [image, setImage] = useState()
 
     const getUserWorkouts = async () => {
-      // if (user){
         const response = await Client.get(`http://localhost:3001/workout/user/${user.id}`)
         setWorkouts(response.data.workouts)
-      // }
   }
 
     if (user) {
@@ -102,7 +100,7 @@ const History = ({ user }) => {
               <p className="font-medium mb-2">{workout.name}</p>
               {workout.exercises.map((exercise) => (
                 <div key={exercise._id}>
-                  <p className="text-gray-800">{exercise.name} {exercise.sets} x {exercise.reps}</p>
+                  <p className="text-gray-800">{exercise.name} {exercise.sets} x {exercise.reps} {exercise.weight}lbs</p>
                 </div>
               ))}
               <p className="text-gray-800">Notes: {workout.notes}</p>
@@ -117,7 +115,7 @@ const History = ({ user }) => {
           {workout?._id === editWorkoutId && (
             <form onSubmit={(e)=>updateWorkout(e, workout._id)}>
 
-            <div className="mb-4 font-bold text-gray-800">
+            <div className="mb-1 font-bold text-gray-800">
               <label className='block font-bold text-gray-900'  htmlFor="workoutName">Workout Name:</label>
               <input
               className='appearance-none border rounded text-gray-700 leading-tight'
@@ -128,7 +126,7 @@ const History = ({ user }) => {
               />
               </div>
     
-              <div className="mb-4 font-bold text-gray-800">
+              <div className="mb-1 font-bold text-gray-800">
                 <label className='block font-bold text-gray-900' htmlFor="workoutDate">Workout Date:</label>
                 <input
                 className='appearance-none border rounded text-gray-700 leading-tight'
@@ -139,7 +137,7 @@ const History = ({ user }) => {
                 />
               </div>
     
-              <div className="mb-4 font-bold text-gray-800">
+              <div className="mb-1 font-bold text-gray-800">
               <label className='block font-bold text-gray-900' htmlFor="notes">Notes:</label>
               <input
               className='appearance-none border rounded text-gray-700 leading-tight'
@@ -150,7 +148,7 @@ const History = ({ user }) => {
               />
     
               </div>
-              <div className="mb-4 font-bold text-gray-800">
+              <div className="mb-1 font-bold text-gray-800">
               <label className='block font-bold text-gray-900' htmlFor="notes">Image:</label>
               <input
               className='appearance-none border rounded text-gray-700 leading-tight'
@@ -161,7 +159,7 @@ const History = ({ user }) => {
               />
               </div>
               
-              <div className='mb-4 font-bold text-gray-800'>
+              <div className='mb-1 font-bold text-gray-800'>
                 <label className='block font-bold text-gray-900' htmlFor="post">Do you want to post this workout? </label>
                 <select className='border rounded text-gray-700 leading-tight'
                 id="post" onChange={(e) => setPost(e.target.value)} value={post}>
@@ -170,7 +168,7 @@ const History = ({ user }) => {
                 </select>
               </div>
     
-              <div className="mb-4 font-bold text-gray-800">
+              <div className="mb-1 font-bold text-gray-800">
                 <label className='block font-bold text-gray-900' htmlFor="exerciseName">Exercise Name:</label>
                 <input
                 className='appearance-none border rounded text-gray-700 leading-tight'
@@ -181,7 +179,7 @@ const History = ({ user }) => {
                 />
               </div>
     
-              <div className="mb-4 font-bold text-gray-800">
+              <div className="mb-1 font-bold text-gray-800">
                 <label className='block font-bold text-gray-900' htmlFor="exerciseSets">Sets:</label>
                 <input
                 className='appearance-none border rounded text-gray-700 leading-tight'
@@ -192,7 +190,7 @@ const History = ({ user }) => {
                 />
               </div>
     
-              <div className="mb-4 font-bold text-gray-800">
+              <div className="mb-1 font-bold text-gray-800">
                 <label className='block font-bold text-gray-900' htmlFor="exerciseReps">Reps:</label>
                 <input
                 className='appearance-none border rounded text-gray-700 leading-tight'
@@ -203,7 +201,7 @@ const History = ({ user }) => {
                 />
               </div>
     
-              <div className="mb-4 font-bold text-gray-800">
+              <div className="mb-1 font-bold text-gray-800">
                 <label className='block font-bold text-gray-900' htmlFor="exerciseWeight">Weight:</label>
                 <input
                 className='appearance-none border rounded text-gray-700 leading-tight'
@@ -214,7 +212,7 @@ const History = ({ user }) => {
                 />
               </div>
     
-            <div className='mb-4'>
+            <div className='mb-1'>
               <p className='font-bold text-gray-800'>Exercises</p>
               <div>
                 {exercises.map((exercise, index) => (
@@ -227,11 +225,11 @@ const History = ({ user }) => {
                 ))}
               </div>
             </div>
-            <div className='mb-4'>
-              <button className="bg-slate-700 text-white py-3 px-8 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300" onClick={handleAddExercise}>Add Exercise</button>
+            <div className='mb-1'>
+              <button className="bg-slate-700 text-white py-1 px-2 rounded-md font-medium text-sm md:text-xl hover:bg-blue-700 transition-all duration-300" onClick={handleAddExercise}>Add Exercise</button>
             </div>
     
-            <button className="bg-slate-700 text-white py-3 px-8 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300" type="submit">Save Workout</button>
+            <button className="bg-slate-700 text-white py-1 px-2 rounded-md font-medium text-sm md:text-xl hover:bg-blue-700 transition-all duration-300" type="submit">Save Workout</button>
           </form>
                 )}
             </div>

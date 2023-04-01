@@ -54,7 +54,7 @@ const Feed = ({ user }) => {
             <p className="text-gray-500 text-sm mb-2">{new Date(post.date).toLocaleDateString()}</p>
             {post?.exercises?.map((exercise) => (
               <p key={exercise.name} className="text-gray-700 mb-1">
-                <span className="font-medium">{exercise.name}:</span> {exercise.sets} x {exercise.reps}
+                <span className="font-medium">{exercise.name}:</span> {exercise.sets} x {exercise.reps} {exercise.weight} lbs
               </p>
             ))}
             <h5 className="font-medium mt-4 mb-2">Comments:</h5>
