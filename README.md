@@ -64,7 +64,7 @@
 ### **_Credits_**
 
 - https://tailwindcss.com/
-- https://tailwindcss.com/
+- https://umeshmk.github.io/Tailwindcss-cheatsheet/
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
 
 ```
