@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 import Client from "../services/api"
 
@@ -57,104 +57,114 @@ const Workout = ({ user }) => {
 
   return (
   <div className='bg-slate-400 min-h-screen'>
-    <div className="container mx-auto px-4 py-8">
-      <h2 className="text-2xl font-bold mb-4 pt-16 text-gray-900">Workout Tracker</h2>
-      <form onSubmit={handleSubmit}>
-
-        <div className="mb-4 font-bold text-gray-800">
-          <label className='block font-bold text-gray-900'  htmlFor="workoutName">Workout Name:</label>
-          <input
-          className='appearance-none border rounded text-gray-700 leading-tight'
+  <div className="container mx-auto px-4 py-8">
+    <h2 className="text-2xl font-bold mb-4 pt-16 text-gray-900">Workout Tracker</h2>
+    <form className="grid grid-cols-2 gap-4 m-10 bg-white rounded-lg shadow-lg p-8" onSubmit={handleSubmit}>
+      <div className="col-span-2">
+        <label htmlFor="workoutName" className="block font-bold text-gray-700 mb-2">
+          Workout Name:
+        </label>
+        <input
           id="workoutName"
           type="text"
           value={workoutName}
           onChange={(e) => setWorkoutName(e.target.value)}
-          />
-          </div>
-
-          <div className="mb-4 font-bold text-gray-800">
-            <label className='block font-bold text-gray-900' htmlFor="workoutDate">Workout Date:</label>
-            <input
-            className='appearance-none border rounded text-gray-700 leading-tight'
-            id="workoutDate"
-            type="date"
-            value={workoutDate.toISOString().slice(0, 10)}
-            onChange={(e) => setWorkoutDate(new Date(e.target.value))}
-            />
-          </div>
-
-          <div className="mb-4 font-bold text-gray-800">
-          <label className='block font-bold text-gray-900' htmlFor="notes">Notes:</label>
-          <input
-          className='appearance-none border rounded text-gray-700 leading-tight'
+          className="w-full border border-gray-400 p-2 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
+        />
+      </div>
+      <div>
+        <label htmlFor="workoutDate" className="block font-bold text-gray-700 mb-2">
+          Workout Date:
+        </label>
+        <input
+          id="workoutDate"
+          type="date"
+          value={workoutDate.toISOString().slice(0, 10)}
+          onChange={(e) => setWorkoutDate(new Date(e.target.value))}
+          className="w-full border border-gray-400 p-2 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
+        />
+      </div>
+      <div>
+        <label htmlFor="notes" className="block font-bold text-gray-700 mb-2">
+          Notes:
+        </label>
+        <input
           id="notes"
           type="text"
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
-          />
-
-          </div>
-          <div className="mb-4 font-bold text-gray-800">
-          <label className='block font-bold text-gray-900' htmlFor="notes">Image:</label>
-          <input
-          className='appearance-none border rounded text-gray-700 leading-tight'
+          className="w-full border border-gray-400 p-2 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
+        />
+      </div>
+      <div>
+        <label htmlFor="image" className="block font-bold text-gray-700 mb-2">
+          Image:
+        </label>
+        <input
           id="image"
           type="text"
           value={image}
           onChange={(e) => setImage(e.target.value)}
-          />
-          </div>
-          
-          <div className='mb-4 font-bold text-gray-800'>
-            <label className='block font-bold text-gray-900' htmlFor="post">Do you want to post this workout? </label>
-            <select className='border rounded text-gray-700 leading-tight'
-            id="post" onChange={(e) => setPost(e.target.value)} value={post}>
-              <option value="true">Yes</option>
-              <option value="false">No</option>
-            </select>
-          </div>
-
-          <div className="mb-4 font-bold text-gray-800">
-            <label className='block font-bold text-gray-900' htmlFor="exerciseName">Exercise Name:</label>
+          className="w-full border border-gray-400 p-2 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
+        />
+      </div>
+      <div>
+        <label htmlFor="post" className="block font-bold text-gray-700 mb-2">
+          Do you want to post this workout?
+        </label>
+        <select
+          id="post"
+          onChange={(e) => setPost(e.target.value)}
+          value={post}
+          className="w-full border border-gray-400 p-2 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
+        >
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+      </div>
+      <div className="col-span-2">
+        <label htmlFor="exerciseName" className="block font-bold text-gray-700 mb-2">
+          Exercise Name:
+        </label>
             <input
-            className='appearance-none border rounded text-gray-700 leading-tight'
             id="exerciseName"
             type="text"
             value={exerciseName}
             onChange={(e) => setExerciseName(e.target.value)}
+            className="w-full border border-gray-400 p-2 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
             />
           </div>
 
           <div className="mb-4 font-bold text-gray-800">
             <label className='block font-bold text-gray-900' htmlFor="exerciseSets">Sets:</label>
             <input
-            className='appearance-none border rounded text-gray-700 leading-tight'
             id="exerciseSets"
             type="number"
             value={exerciseSets}
             onChange={(e) => setExerciseSets(e.target.value)}
+            className="w-full border border-gray-400 p-2 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
             />
           </div>
 
           <div className="mb-4 font-bold text-gray-800">
             <label className='block font-bold text-gray-900' htmlFor="exerciseReps">Reps:</label>
             <input
-            className='appearance-none border rounded text-gray-700 leading-tight'
             id="exerciseReps"
             type="text"
             value={exerciseReps}
             onChange={(e) => setExerciseReps(e.target.value)}
+            className="w-full border border-gray-400 p-2 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
             />
           </div>
 
           <div className="mb-4 font-bold text-gray-800">
             <label className='block font-bold text-gray-900' htmlFor="exerciseWeight">Weight:</label>
             <input
-            className='appearance-none border rounded text-gray-700 leading-tight'
             id="exerciseWeight"
             type="number"
             value={exerciseWeight}
             onChange={(e) => setExerciseWeight(e.target.value)}
+            className="w-full border border-gray-400 p-2 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
             />
           </div>
 
@@ -172,11 +182,12 @@ const Workout = ({ user }) => {
           </div>
         </div>
 
-        <div className='mb-4'>
+        <div className='mb-4 col-span-2'>
           <button className="bg-slate-700 text-white py-3 px-8 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300" onClick={handleAddExercise}>Add Exercise</button>
         </div>
-
+      <div>
         <button className="bg-slate-700 text-white py-3 px-8 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300" type="submit">Save Workout</button>
+      </div>
       </form>
     </div>
 </div>

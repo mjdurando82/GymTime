@@ -42,7 +42,7 @@ const Feed = ({ user }) => {
       <div className="max-w-xl mx-auto py-8">
         <h2 className="text-3xl font-bold mb-4">Posted Workouts</h2>
         {posts?.map((post) => (
-          <div key={post._id} className="border rounded-md shadow-md bg-white p-4 mb-4">
+          <div key={post._id} className="border rounded-md shadow-md bg-gray-100 p-4 mb-4">
             <div className="flex items-center mb-2">
               <p className="font-medium">{post.user.username}</p>
             </div>
