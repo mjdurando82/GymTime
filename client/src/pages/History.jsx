@@ -94,7 +94,9 @@ const History = ({ user }) => {
       <div className="flex flex-wrap justify-evenly m-5"> 
         {workouts?.map((workout) => (
           <div className="bg-white rounded-lg p-4 mb-4 flex items-center" key={workout._id}>
-            <img className="my-2 ml-4 mr-8 rounded" src={workout.image} />
+            {workout.image && (
+              <img className="my-2 ml-4 mr-8 h-20 w-20 rounded" src={workout.image} />
+            )}
             <div className="flex-1">
               <p className="mb-1">{new Date(workout.date).toLocaleDateString()}</p>
               <p className="font-medium mb-2">{workout.name}</p>
@@ -113,12 +115,12 @@ const History = ({ user }) => {
             </div>
         <div>
           {workout?._id === editWorkoutId && (
-            <form onSubmit={(e)=>updateWorkout(e, workout._id)}>
+            <form  onSubmit={(e)=>updateWorkout(e, workout._id)}>
 
             <div className="mb-1 font-bold text-gray-800">
               <label className='block font-bold text-gray-900'  htmlFor="workoutName">Workout Name:</label>
               <input
-              className='appearance-none border rounded text-gray-700 leading-tight'
+              className="border border-gray-400 p-0 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
               id="workoutName"
               type="text"
               value={workoutName}
@@ -129,7 +131,7 @@ const History = ({ user }) => {
               <div className="mb-1 font-bold text-gray-800">
                 <label className='block font-bold text-gray-900' htmlFor="workoutDate">Workout Date:</label>
                 <input
-                className='appearance-none border rounded text-gray-700 leading-tight'
+                className="border border-gray-400 p-0 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
                 id="workoutDate"
                 type="date"
                 value={workoutDate.toISOString().slice(0, 10)}
@@ -140,7 +142,7 @@ const History = ({ user }) => {
               <div className="mb-1 font-bold text-gray-800">
               <label className='block font-bold text-gray-900' htmlFor="notes">Notes:</label>
               <input
-              className='appearance-none border rounded text-gray-700 leading-tight'
+              className="border border-gray-400 p-0 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
               id="notes"
               type="text"
               value={notes}
@@ -151,7 +153,7 @@ const History = ({ user }) => {
               <div className="mb-1 font-bold text-gray-800">
               <label className='block font-bold text-gray-900' htmlFor="notes">Image:</label>
               <input
-              className='appearance-none border rounded text-gray-700 leading-tight'
+              className="border border-gray-400 p-0 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
               id="image"
               type="text"
               value={image}
@@ -161,7 +163,7 @@ const History = ({ user }) => {
               
               <div className='mb-1 font-bold text-gray-800'>
                 <label className='block font-bold text-gray-900' htmlFor="post">Do you want to post this workout? </label>
-                <select className='border rounded text-gray-700 leading-tight'
+                <select className="border border-gray-400 p-0 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
                 id="post" onChange={(e) => setPost(e.target.value)} value={post}>
                   <option value="true">Yes</option>
                   <option value="false">No</option>
@@ -171,7 +173,7 @@ const History = ({ user }) => {
               <div className="mb-1 font-bold text-gray-800">
                 <label className='block font-bold text-gray-900' htmlFor="exerciseName">Exercise Name:</label>
                 <input
-                className='appearance-none border rounded text-gray-700 leading-tight'
+                className="border border-gray-400 p-0 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
                 id="exerciseName"
                 type="text"
                 value={exerciseName}
@@ -182,7 +184,7 @@ const History = ({ user }) => {
               <div className="mb-1 font-bold text-gray-800">
                 <label className='block font-bold text-gray-900' htmlFor="exerciseSets">Sets:</label>
                 <input
-                className='appearance-none border rounded text-gray-700 leading-tight'
+                className="border border-gray-400 p-0 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
                 id="exerciseSets"
                 type="number"
                 value={exerciseSets}
@@ -193,7 +195,7 @@ const History = ({ user }) => {
               <div className="mb-1 font-bold text-gray-800">
                 <label className='block font-bold text-gray-900' htmlFor="exerciseReps">Reps:</label>
                 <input
-                className='appearance-none border rounded text-gray-700 leading-tight'
+                className="border border-gray-400 p-0 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
                 id="exerciseReps"
                 type="text"
                 value={exerciseReps}
@@ -204,7 +206,7 @@ const History = ({ user }) => {
               <div className="mb-1 font-bold text-gray-800">
                 <label className='block font-bold text-gray-900' htmlFor="exerciseWeight">Weight:</label>
                 <input
-                className='appearance-none border rounded text-gray-700 leading-tight'
+                className="border border-gray-400 p-0 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
                 id="exerciseWeight"
                 type="number"
                 value={exerciseWeight}
@@ -230,6 +232,7 @@ const History = ({ user }) => {
             </div>
     
             <button className="bg-slate-700 text-white py-1 px-2 rounded-md font-medium text-sm md:text-xl hover:bg-blue-700 transition-all duration-300" type="submit">Save Workout</button>
+            <button className="bg-slate-700 text-white py-1 px-2 rounded-md font-medium text-sm md:text-xl hover:bg-blue-700 transition-all duration-300 ml-2" onClick={()=>closeUpdate()}>Cancel</button>
           </form>
                 )}
             </div>

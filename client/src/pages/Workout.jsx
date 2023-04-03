@@ -79,8 +79,8 @@ const Workout = ({ user }) => {
         <input
           id="workoutDate"
           type="date"
-          value={workoutDate.toISOString().slice(0, 10)}
-          onChange={(e) => setWorkoutDate(new Date(e.target.value))}
+          value={workoutDate}
+          onChange={(e) => setWorkoutDate(e.target.value)}
           className="w-full border border-gray-400 p-2 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
         />
       </div>
