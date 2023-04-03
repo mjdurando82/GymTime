@@ -115,17 +115,18 @@ const History = ({ user }) => {
             </div>
         <div>
           {workout?._id === editWorkoutId && (
-            <form  onSubmit={(e)=>updateWorkout(e, workout._id)}>
-
-            <div className="mb-1 font-bold text-gray-800">
-              <label className='block font-bold text-gray-900'  htmlFor="workoutName">Workout Name:</label>
-              <input
-              className="border border-gray-400 p-0 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
-              id="workoutName"
-              type="text"
-              value={workoutName}
-              onChange={(e) => setWorkoutName(e.target.value)}
-              />
+          <div className="p-4">
+            <form className="" onSubmit={(e)=>updateWorkout(e, workout._id)}>
+            
+              <div className="mb-1 font-bold text-gray-800">
+                <label className='block font-bold text-gray-900'  htmlFor="workoutName">Workout Name:</label>
+                <input
+                className="border border-gray-400 p-0 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
+                id="workoutName"
+                type="text"
+                value={workoutName}
+                onChange={(e) => setWorkoutName(e.target.value)}
+                />
               </div>
     
               <div className="mb-1 font-bold text-gray-800">
@@ -234,10 +235,11 @@ const History = ({ user }) => {
             <button className="bg-slate-700 text-white py-1 px-2 rounded-md font-medium text-sm md:text-xl hover:bg-blue-700 transition-all duration-300" type="submit">Save Workout</button>
             <button className="bg-slate-700 text-white py-1 px-2 rounded-md font-medium text-sm md:text-xl hover:bg-blue-700 transition-all duration-300 ml-2" onClick={()=>closeUpdate()}>Cancel</button>
           </form>
+        </div>
                 )}
             </div>
           </div>
-        ))}
+          ))}
       </div>
       <div>
         {!buttons && (
