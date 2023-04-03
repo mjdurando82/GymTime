@@ -93,7 +93,7 @@ const History = ({ user }) => {
       <h2 className="text-2xl font-bold mb-4 pt-16">Your Workout History</h2>
       <div className="flex flex-wrap justify-evenly m-5"> 
         {workouts?.map((workout) => (
-          <div className="bg-white rounded-lg p-4 mb-4 flex items-center" key={workout._id}>
+          <div className="bg-gray-100 rounded-lg p-4 mb-4 flex items-center" key={workout._id}>
             {workout.image && (
               <img className="my-2 ml-4 mr-8 h-20 w-20 rounded" src={workout.image} />
             )}

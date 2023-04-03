@@ -28,9 +28,9 @@ const UpdateComment = ({ comment, closeForm, getPosts, setEditCommentId }) => {
   return (
     <div className="comment-form-container">
       <form onSubmit={handleUpdate}>
-        <label htmlFor="content">Update Your Comment</label>
+        <label htmlFor="content">Update Your Comment:</label>
         <textarea
-          className='appearance-none border rounded text-gray-700 leading-tight'
+          className="w-full border border-gray-400 p-2 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
           type="text"
           id="content"
           onChange={handleChangeUpdate}

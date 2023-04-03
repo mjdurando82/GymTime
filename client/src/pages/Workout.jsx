@@ -59,7 +59,7 @@ const Workout = ({ user }) => {
   <div className='bg-slate-400 min-h-screen'>
   <div className="container mx-auto px-4 py-8">
     <h2 className="text-2xl font-bold mb-4 pt-16 text-gray-900">Workout Tracker</h2>
-    <form className="grid grid-cols-2 gap-4 m-10 bg-white rounded-lg shadow-lg p-8" onSubmit={handleSubmit}>
+    <form className="grid grid-cols-2 gap-4 m-10 bg-gray-100 rounded-lg shadow-lg p-8" onSubmit={handleSubmit}>
       <div className="col-span-2">
         <label htmlFor="workoutName" className="block font-bold text-gray-700 mb-2">
           Workout Name:
