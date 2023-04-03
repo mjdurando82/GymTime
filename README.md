@@ -18,7 +18,13 @@
 
 ### **_Screenshots_**
 
-####
+###### Sign In
+
+### ![Sign in Page](https://cdn.discordapp.com/attachments/1048643961968934924/1092466884366061568/Strength_Login.png)
+
+###### Home
+
+### ![Home Page](https://cdn.discordapp.com/attachments/1048643961968934924/1092466907149504534/Strength_Home.png)
 
 ---
 
@@ -30,7 +36,7 @@
 - Node
 - HTML
 - Javascript
-- CSS
+- Tailwind CSS
 
 ---
 
@@ -44,13 +50,18 @@
 
 ### **_Future Updates_**
 
-####
+- User Features -change password, friends list, profile picture
+- Add likes on posts
+- Integrate a 3rd party API for a list of exercises
+- Implement search functionality on workouts and exercises
 
 ---
 
 ### **_Credits_**
 
--
+- https://tailwindcss.com/
+- https://tailwindcss.com/
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
 
 ```
 
