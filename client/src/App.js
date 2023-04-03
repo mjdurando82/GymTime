@@ -1,4 +1,3 @@
-import './App.css'
 import './index.css'
 import Home from './pages/Home'
 import Feed from './pages/Feed'
