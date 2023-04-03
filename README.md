@@ -10,7 +10,7 @@
 
 ### **_Description_**
 
-#### Strength is an app for those who enjoy weight lifting. It accesses an api that contains exercises sorted by muscle group . Users can add exercises to their own workout while also tracking the weight and how many sets and reps they did. This allows users to visualize their progress in turn allowing them to get better over time. Users have the option to post workouts and view other workouts posted by different users. These posts can be commented on. Allowing for interaction and connectivity in the apps user community.
+#### Strength is an app for those who enjoy weight lifting. Users can add exercises to their own workout while also tracking the weight and how many sets and reps they did. This allows users to visualize their progress on their history page, allowing them to reference it to improve over time. Users have the option to post workouts and view other workouts posted by different users. These posts can be commented on. Allowing for interaction and connectivity in the Strength community.
 
 ---
 
