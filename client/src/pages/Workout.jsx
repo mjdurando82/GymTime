@@ -35,7 +35,7 @@ const Workout = ({ user }) => {
   }
 
 
-  const handleAddExercise = (e) => {
+  const addExercise = (e) => {
     e.preventDefault()
     const exercise = {
       name: exerciseName,
@@ -51,7 +51,8 @@ const Workout = ({ user }) => {
   }
   
   const removeExercise = (index) => {
-    const remove = exercises.filter((_, i) => i !== index)
+    const remove = [...exercises]
+    remove.splice(index, 1)
     setExercises(remove)
   }
 
@@ -59,7 +60,7 @@ const Workout = ({ user }) => {
   <div className='bg-slate-400 min-h-screen'>
   <div className="container mx-auto px-4 py-8">
     <h2 className="text-2xl font-bold mb-4 pt-16 text-gray-900">Workout Tracker</h2>
-    <form className="grid grid-cols-2 gap-4 m-10 bg-gray-100 rounded-lg shadow-lg p-8" onSubmit={handleSubmit}>
+    <form className="grid grid-cols-2 gap-4 m-10 bg-gray-100 rounded-lg shadow-lg p-8">
       <div className="col-span-2">
         <label htmlFor="workoutName" className="block font-bold text-gray-700 mb-2">
           Workout Name:
@@ -173,7 +174,7 @@ const Workout = ({ user }) => {
           <div>
             {exercises.map((exercise, index) => (
               <div className='flex'>
-              <p key={exercise.id}>
+              <p key={index}>
               {exercise.name}: {exercise.sets} x {exercise.reps} {exercise.weight}lbs
               </p>
               <button className="ml-4 bg-red-500 text-white py-1 px-1 rounded-md text-sm mr-2 hover:bg-rose-700 transition-all duration-300" onClick={()=>removeExercise(index)}>X</button>
@@ -182,11 +183,11 @@ const Workout = ({ user }) => {
           </div>
         </div>
 
-        <div className='mb-4 col-span-2'>
-          <button className="bg-slate-700 text-white py-3 px-8 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300" onClick={handleAddExercise}>Add Exercise</button>
+        <div className='w-1/2 mb-4 col-span-2'>
+          <button className="sticky bg-slate-700 text-white py-3 px-8 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300" onClick={addExercise}>Add Exercise</button>
         </div>
       <div>
-        <button className="bg-slate-700 text-white py-3 px-8 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300" type="submit">Save Workout</button>
+        <button className="bg-slate-700 text-white py-3 px-8 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300" onClick={handleSubmit}>Save Workout</button>
       </div>
       </form>
     </div>
