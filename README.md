@@ -1,4 +1,4 @@
-# GymTime
+# Strength
 
 ## Date 3/23/23
 
@@ -10,7 +10,9 @@
 
 ### **_Description_**
 
-#### Gym Time is an app for those who enjoy weight lifting. It accesses an api that contains exercises sorted by muscle group . Users can add exercises to their own workout while also tracking the weight and how many sets and reps they did. This allows users to visualize their progress in turn allowing them to get better over time. Users have the option to post workouts and view other workouts posted by different users. These posts can be commented on. Allowing for interaction and connectivity in the apps user community.
+#### Strength is an app for those who enjoy weight lifting. It accesses an api that contains exercises sorted by muscle group . Users can add exercises to their own workout while also tracking the weight and how many sets and reps they did. This allows users to visualize their progress in turn allowing them to get better over time. Users have the option to post workouts and view other workouts posted by different users. These posts can be commented on. Allowing for interaction and connectivity in the apps user community.
+
+---
 
 #### This application was developed to make the tracking of weight lifting workouts easier and more customizable.
 
@@ -18,9 +20,9 @@
 
 ### **_Screenshots_**
 
-###### Sign In
+###### Login
 
-### ![Sign in Page](https://cdn.discordapp.com/attachments/1048643961968934924/1092466884366061568/Strength_Login.png)
+### ![Login](https://cdn.discordapp.com/attachments/1048643961968934924/1092466884366061568/Strength_Login.png)
 
 ###### Home
 
@@ -44,14 +46,16 @@
 
 #### Register or login to your account to get started. Browse the site to view exercises and workouts. Add exercises to customize your workout and track your progress!
 
+---
+
 #### A Trello board, a component hierachy diagram, and a entity relationship diagram were used to track and organize the development progress. They can be viewed here. [Trello](https://trello.com/b/xFWezQPV/gym-time) | [Component-Hierarchy-Diagram](https://lucid.app/lucidchart/a2575bef-75f6-41fe-a6b2-7971713ede85/edit?beaconFlowId=B98CA4E604E9CD8C&invitationId=inv_b502ebb7-5a67-4e8f-895a-31aa922974b2&page=0_0#) | [ERD](https://lucid.app/lucidchart/c49c0674-5528-4a30-a6d8-f9cc0775f349/edit?beaconFlowId=C0DC9B4CBD24064D&invitationId=inv_ac9e32bb-2890-4093-8eea-2c96c7a98411&page=0_0#)
 
 ---
 
 ### **_Future Updates_**
 
-- User Features -change password, friends list, profile picture
-- Add likes on posts
+- Add features -change password, friends list, profile picture
+- Ability to like a post
 - Integrate a 3rd party API for a list of exercises
 - Implement search functionality on workouts and exercises
 
