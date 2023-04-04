@@ -29,7 +29,7 @@ const Home = ({ user }) => {
       </h1>
         )}
       <p className='text-xl md:text-2xl text-gray-600 mb-12'>
-        Start tracking your workouts today.
+        Start tracking your workouts today
       </p>
       <Link
         to='/workout'
