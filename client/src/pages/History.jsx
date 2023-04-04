@@ -8,7 +8,7 @@ const History = ({ user }) => {
   const [buttons, setButtons] = useState(false)
   const [editWorkoutId, setEditWorkoutId] = useState(null)
   const [workoutName, setWorkoutName] = useState('')
-  const [workoutDate, setWorkoutDate] = useState(new Date())
+  const [workoutDate, setWorkoutDate] = useState('')
   const [exerciseName, setExerciseName] = useState('')
   const [exerciseSets, setExerciseSets] = useState('')
   const [exerciseReps, setExerciseReps] = useState('')
@@ -62,8 +62,8 @@ const History = ({ user }) => {
   }
 
   const removeExercise = (index) => {
-    const removed = exercises.filter((_, i) => i !== index)
-    setExercises(removed)
+    const remove = exercises.filter((exercise, i) => i !== index)
+    setExercises(remove)
   }
 
 

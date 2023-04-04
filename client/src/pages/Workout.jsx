@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import Client from "../services/api"
 
@@ -33,7 +33,9 @@ const Workout = ({ user }) => {
     setImage('')
     setNotes('')
   }
-
+  useEffect(() => {
+    console.log(exercises)
+  }, [exercises])
 
   const addExercise = (e) => {
     e.preventDefault()
@@ -48,11 +50,11 @@ const Workout = ({ user }) => {
     setExerciseSets('')
     setExerciseReps('')
     setExerciseWeight('')
+    console.log(exercises)
   }
   
   const removeExercise = (index) => {
-    const remove = [...exercises]
-    remove.splice(index, 1)
+    const remove = exercises.filter((exercise, i) => i !== index)
     setExercises(remove)
   }
 
