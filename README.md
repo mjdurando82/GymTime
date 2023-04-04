@@ -22,11 +22,11 @@
 
 ###### Login
 
-### ![Login](https://cdn.discordapp.com/attachments/1048643961968934924/1092466884366061568/Strength_Login.png)
+### ![Login](https://cdn.discordapp.com/attachments/1048643961968934924/1092816547145334875/Strength_Login.png)
 
 ###### Home
 
-### ![Home Page](https://cdn.discordapp.com/attachments/1048643961968934924/1092466907149504534/Strength_Home.png)
+### ![Home Page](https://cdn.discordapp.com/attachments/1048643961968934924/1092816569018634281/Strength_Home.png)
 
 ---
 
