@@ -44,7 +44,9 @@
 
 ### **_How to Get Started_**
 
-#### Register or login to your account to get started. Browse the site to view exercises and workouts. Add exercises to customize your workout and track your progress!
+#### Click the deployed app link below! Register or login to your account to get started. Browse the site to view workouts. Add exercises to customize your workout and track your progress!
+
+#### [Deployed App](https://strength-app.herokuapp.com/)
 
 ---
 
