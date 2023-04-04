@@ -112,7 +112,7 @@ const Login = ({ setUser }) => {
   <form className='max-w-md mx-auto' onSubmit={handleRegistration}>
           <div className='mb-4'>
             <h3 className='text-2xl font-bold mb-2'>Register</h3>
-            <label className='block text-gray-700 font-bold mb-2' htmlFor="username">Username: </label>
+            <label className='block text-gray-700 font-bold mb-2' htmlFor="username">Username</label>
             <input
               className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight'
               onChange={handleRegChange}
@@ -124,7 +124,7 @@ const Login = ({ setUser }) => {
               />
           </div>
           <div className='mb-4'>
-            <label className='block text-gray-700 font-bold mb-2' htmlFor="email">Email: </label>
+            <label className='block text-gray-700 font-bold mb-2' htmlFor="email">Email</label>
             <input
               className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight'
               onChange={handleRegChange}
@@ -137,7 +137,7 @@ const Login = ({ setUser }) => {
           </div>
 
           <div className='mb-4'>
-            <label className='block text-gray-700 font-bold mb-2' htmlFor="password">Password: </label>
+            <label className='block text-gray-700 font-bold mb-2' htmlFor="password">Password</label>
             <input
               className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight'
               onChange={handleRegChange}
@@ -148,7 +148,7 @@ const Login = ({ setUser }) => {
               />
           </div>
           <div className='mb-4'>
-            <label className='block text-gray-700 font-bold mb-2' htmlFor="confirmPassword">Confirm Password: </label>
+            <label className='block text-gray-700 font-bold mb-2' htmlFor="confirmPassword">Confirm Password</label>
             <input
               className='appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight'
               onChange={handleRegChange}
