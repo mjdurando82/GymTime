@@ -15,17 +15,6 @@ const Workout = ({ user }) => {
   const [notes, setNotes] = useState('')
   const [image, setImage] = useState('')
 
-  const initialState = {
-    user: user?.id,
-    name: workoutName,
-    date: workoutDate,
-    notes: notes,
-    image: image,
-    post: post,
-    exercises: exercises
-  }
-  const [formState, setFormState] = useState(initialState)
-
   const handleSubmit = async (e) => {
     e.preventDefault()
     const workout = {
@@ -76,7 +65,7 @@ const Workout = ({ user }) => {
     <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4 m-10 bg-gray-100 rounded-lg shadow-lg p-8">
       <div className="col-span-2">
         <label htmlFor="workoutName" className="block font-bold text-gray-700 mb-2">
-          Workout Name:
+          Workout Name
         </label>
         <input
           id="workoutName"
@@ -88,7 +77,7 @@ const Workout = ({ user }) => {
       </div>
       <div>
         <label htmlFor="workoutDate" className="block font-bold text-gray-700 mb-2">
-          Workout Date:
+          Workout Date
         </label>
         <input
           id="workoutDate"
@@ -100,7 +89,7 @@ const Workout = ({ user }) => {
       </div>
       <div>
         <label htmlFor="notes" className="block font-bold text-gray-700 mb-2">
-          Notes:
+          Notes
         </label>
         <input
           id="notes"
@@ -112,7 +101,7 @@ const Workout = ({ user }) => {
       </div>
       <div>
         <label htmlFor="image" className="block font-bold text-gray-700 mb-2">
-          Image:
+          Image
         </label>
         <input
           id="image"
@@ -124,7 +113,7 @@ const Workout = ({ user }) => {
       </div>
       <div>
         <label htmlFor="post" className="block font-bold text-gray-700 mb-2">
-          Do you want to post this workout?
+          Would you like to post this workout?
         </label>
         <select
           id="post"
@@ -138,7 +127,7 @@ const Workout = ({ user }) => {
       </div>
       <div className="col-span-2">
         <label htmlFor="exerciseName" className="block font-bold text-gray-700 mb-2">
-          Exercise Name:
+          Exercise Name
         </label>
             <input
             id="exerciseName"
@@ -150,7 +139,7 @@ const Workout = ({ user }) => {
           </div>
 
           <div className="mb-4 font-bold text-gray-800">
-            <label className='block font-bold text-gray-900' htmlFor="exerciseSets">Sets:</label>
+            <label className='block font-bold text-gray-900' htmlFor="exerciseSets">Sets</label>
             <input
             id="exerciseSets"
             type="number"
@@ -161,7 +150,7 @@ const Workout = ({ user }) => {
           </div>
 
           <div className="mb-4 font-bold text-gray-800">
-            <label className='block font-bold text-gray-900' htmlFor="exerciseReps">Reps:</label>
+            <label className='block font-bold text-gray-900' htmlFor="exerciseReps">Reps</label>
             <input
             id="exerciseReps"
             type="text"
@@ -172,7 +161,7 @@ const Workout = ({ user }) => {
           </div>
 
           <div className="mb-4 font-bold text-gray-800">
-            <label className='block font-bold text-gray-900' htmlFor="exerciseWeight">Weight:</label>
+            <label className='block font-bold text-gray-900' htmlFor="exerciseWeight">Weight</label>
             <input
             id="exerciseWeight"
             type="number"
