@@ -8,7 +8,7 @@ const History = ({ user }) => {
   const [buttons, setButtons] = useState(false)
   const [editWorkoutId, setEditWorkoutId] = useState(null)
   const [workoutName, setWorkoutName] = useState('')
-  const [workoutDate, setWorkoutDate] = useState('')
+  const [workoutDate, setWorkoutDate] = useState(new Date())
   const [exerciseName, setExerciseName] = useState('')
   const [exerciseSets, setExerciseSets] = useState('')
   const [exerciseReps, setExerciseReps] = useState('')
@@ -223,7 +223,7 @@ const History = ({ user }) => {
                   <p key={exercise.id}>
                   {exercise.name}: {exercise.sets} x {exercise.reps} {exercise.weight}lbs
                   </p>
-                  <button className="ml-4 bg-red-500 text-white py-1 px-1 rounded-md text-sm mr-2 hover:bg-rose-700 transition-all duration-300" onClick={()=>removeExercise(index)}>X</button>
+                  <button className="ml-4 bg-red-500 text-white py-1 px-1 rounded-md text-sm mr-2 hover:bg-rose-700 transition-all duration-300" type="button" onClick={()=>removeExercise(index)}>X</button>
                   </div>
                 ))}
               </div>

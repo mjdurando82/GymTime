@@ -15,6 +15,17 @@ const Workout = ({ user }) => {
   const [notes, setNotes] = useState('')
   const [image, setImage] = useState('')
 
+  const initialState = {
+    user: user?.id,
+    name: workoutName,
+    date: workoutDate,
+    notes: notes,
+    image: image,
+    post: post,
+    exercises: exercises
+  }
+  const [formState, setFormState] = useState(initialState)
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     const workout = {
@@ -62,7 +73,7 @@ const Workout = ({ user }) => {
   <div className='bg-slate-400 min-h-screen'>
   <div className="container mx-auto px-4 py-8">
     <h2 className="text-2xl font-bold mb-4 pt-16 text-gray-900">Workout Tracker</h2>
-    <form className="grid grid-cols-2 gap-4 m-10 bg-gray-100 rounded-lg shadow-lg p-8">
+    <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-4 m-10 bg-gray-100 rounded-lg shadow-lg p-8">
       <div className="col-span-2">
         <label htmlFor="workoutName" className="block font-bold text-gray-700 mb-2">
           Workout Name:
@@ -179,7 +190,7 @@ const Workout = ({ user }) => {
               <p key={index}>
               {exercise.name}: {exercise.sets} x {exercise.reps} {exercise.weight}lbs
               </p>
-              <button className="ml-4 bg-red-500 text-white py-1 px-1 rounded-md text-sm mr-2 hover:bg-rose-700 transition-all duration-300" onClick={()=>removeExercise(index)}>X</button>
+              <button type='button' className="ml-4 bg-red-500 text-white py-1 px-1 rounded-md text-sm mr-2 hover:bg-rose-700 transition-all duration-300" onClick={()=>removeExercise(index)}>X</button>
               </div>
             ))}
           </div>
@@ -189,7 +200,7 @@ const Workout = ({ user }) => {
           <button className="sticky bg-slate-700 text-white py-3 px-8 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300" onClick={addExercise}>Add Exercise</button>
         </div>
       <div>
-        <button className="bg-slate-700 text-white py-3 px-8 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300" onClick={handleSubmit}>Save Workout</button>
+        <button type='submit' className="bg-slate-700 text-white py-3 px-8 rounded-md font-medium text-lg md:text-xl hover:bg-blue-700 transition-all duration-300">Save Workout</button>
       </div>
       </form>
     </div>
