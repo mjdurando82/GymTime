@@ -170,7 +170,7 @@ const Login = ({ setUser }) => {
             Sign In
           </button>
           </div>
-          <p className='text-center text-gray-500 cursor-pointer hover:underline' onClick={toggleForm}>Already Have An Account Click Here To Login!</p>
+          <p className='pb-10 text-center text-gray-500 cursor-pointer hover:underline' onClick={toggleForm}>Already Have An Account Click Here To Login!</p>
         </form>
       )}
       </div>
