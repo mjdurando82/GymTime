@@ -119,7 +119,7 @@ const History = ({ user }) => {
             <form className="" onSubmit={(e)=>updateWorkout(e, workout._id)}>
             
               <div className="mb-1 font-bold text-gray-800">
-                <label className='block font-bold text-gray-900'  htmlFor="workoutName">Workout Name:</label>
+                <label className='block font-bold text-gray-900'  htmlFor="workoutName">Workout Name</label>
                 <input
                 className="border border-gray-400 p-0 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
                 id="workoutName"
@@ -130,7 +130,7 @@ const History = ({ user }) => {
               </div>
     
               <div className="mb-1 font-bold text-gray-800">
-                <label className='block font-bold text-gray-900' htmlFor="workoutDate">Workout Date:</label>
+                <label className='block font-bold text-gray-900' htmlFor="workoutDate">Workout Date</label>
                 <input
                 className="border border-gray-400 p-0 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
                 id="workoutDate"
@@ -141,7 +141,7 @@ const History = ({ user }) => {
               </div>
     
               <div className="mb-1 font-bold text-gray-800">
-              <label className='block font-bold text-gray-900' htmlFor="notes">Notes:</label>
+              <label className='block font-bold text-gray-900' htmlFor="notes">Notes</label>
               <input
               className="border border-gray-400 p-0 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
               id="notes"
@@ -152,7 +152,7 @@ const History = ({ user }) => {
     
               </div>
               <div className="mb-1 font-bold text-gray-800">
-              <label className='block font-bold text-gray-900' htmlFor="notes">Image:</label>
+              <label className='block font-bold text-gray-900' htmlFor="notes">Image</label>
               <input
               className="border border-gray-400 p-0 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
               id="image"
@@ -163,7 +163,7 @@ const History = ({ user }) => {
               </div>
               
               <div className='mb-1 font-bold text-gray-800'>
-                <label className='block font-bold text-gray-900' htmlFor="post">Do you want to post this workout? </label>
+                <label className='block font-bold text-gray-900' htmlFor="post">Would you like to post this workout? </label>
                 <select className="border border-gray-400 p-0 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
                 id="post" onChange={(e) => setPost(e.target.value)} value={post}>
                   <option value="true">Yes</option>
@@ -172,7 +172,7 @@ const History = ({ user }) => {
               </div>
     
               <div className="mb-1 font-bold text-gray-800">
-                <label className='block font-bold text-gray-900' htmlFor="exerciseName">Exercise Name:</label>
+                <label className='block font-bold text-gray-900' htmlFor="exerciseName">Exercise Name</label>
                 <input
                 className="border border-gray-400 p-0 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
                 id="exerciseName"
@@ -183,7 +183,7 @@ const History = ({ user }) => {
               </div>
     
               <div className="mb-1 font-bold text-gray-800">
-                <label className='block font-bold text-gray-900' htmlFor="exerciseSets">Sets:</label>
+                <label className='block font-bold text-gray-900' htmlFor="exerciseSets">Sets</label>
                 <input
                 className="border border-gray-400 p-0 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
                 id="exerciseSets"
@@ -194,7 +194,7 @@ const History = ({ user }) => {
               </div>
     
               <div className="mb-1 font-bold text-gray-800">
-                <label className='block font-bold text-gray-900' htmlFor="exerciseReps">Reps:</label>
+                <label className='block font-bold text-gray-900' htmlFor="exerciseReps">Reps</label>
                 <input
                 className="border border-gray-400 p-0 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
                 id="exerciseReps"
@@ -205,7 +205,7 @@ const History = ({ user }) => {
               </div>
     
               <div className="mb-1 font-bold text-gray-800">
-                <label className='block font-bold text-gray-900' htmlFor="exerciseWeight">Weight:</label>
+                <label className='block font-bold text-gray-900' htmlFor="exerciseWeight">Weight</label>
                 <input
                 className="border border-gray-400 p-0 rounded-md text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
                 id="exerciseWeight"
