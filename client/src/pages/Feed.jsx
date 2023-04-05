@@ -21,7 +21,7 @@ const Feed = ({ user }) => {
   }
   
   const getPosts = async () => {
-    const response = await axios.get(`/api/workout/posts`)
+    const response = await axios.get(`http://localhost:3001/api/workout/posts`)
     const sorted = response.data.workouts.sort((a, b) => new Date(b.date) - new Date(a.date))
     setPosts(sorted)
   }
