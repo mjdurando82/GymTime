@@ -1,5 +1,6 @@
 const cors = require('cors')
 const express = require('express')
+const logger = require('morgan')
 const routes = require('./routes')
 const AuthRouter = require('./routes/AuthRouter')
 const UserRouter = require('./routes/UserRouter')
@@ -16,6 +17,7 @@ const PORT = process.env.PORT || 27017
 const app = express()
 
 app.use(cors())
+app.use(logger('dev'))
 app.use(express.json())
 
 app.use(express.static(`${__dirname}/client/build`))
