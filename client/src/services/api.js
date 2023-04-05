@@ -1,6 +1,6 @@
 import Axios from 'axios'
 
-export const BASE_URL = 'https://strength-app.herokuapp.com/'
+export const BASE_URL = Proxy
 
 const Client = Axios.create({ baseURL: BASE_URL })
 
