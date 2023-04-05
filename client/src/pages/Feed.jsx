@@ -6,7 +6,6 @@ import UpdateComment from "../components/UpdateComment"
 
 const Feed = ({ user }) => {
 
-
   const [posts, setPosts] = useState()
   
   const [editCommentId, setEditCommentId] = useState(null)
