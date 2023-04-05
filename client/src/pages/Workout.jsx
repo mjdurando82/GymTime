@@ -33,9 +33,6 @@ const Workout = ({ user }) => {
     setImage('')
     setNotes('')
   }
-  useEffect(() => {
-    console.log(exercises)
-  }, [exercises])
 
   const addExercise = (e) => {
     e.preventDefault()
