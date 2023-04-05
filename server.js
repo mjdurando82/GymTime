@@ -12,7 +12,7 @@ const db = require('./db')
 
 // require() imports and middleware here ^ ///////
 
-const PORT = process.env.PORT || 27017
+const PORT = process.env.PORT || 3001
 
 const app = express()
 
