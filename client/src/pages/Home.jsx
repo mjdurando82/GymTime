@@ -16,6 +16,7 @@ const Home = ({ user }) => {
   useEffect(() => {
     getUserById()
   }, [])
+
   return (
     <div className='bg-slate-400 min-h-screen flex flex-col justify-center items-center bg-gray-100'>
       <img
