@@ -22,13 +22,13 @@ app.use(express.static(`${__dirname}/client/build`))
 
 // app.use() middleware here ^ ///////////////////
 
-app.use('/api', routes)
-app.use('/api/auth', AuthRouter)
-app.use('/api/user', UserRouter)
-app.use('/api/workout', WorkoutRouter)
-app.use('/api/exercise', ExerciseRouter)
-app.use('/api/exercise', ExerciseRouter)
-app.use('/api/comment', CommentRouter)
+app.use('/', routes)
+app.use('/auth', AuthRouter)
+app.use('/user', UserRouter)
+app.use('/workout', WorkoutRouter)
+app.use('/exercise', ExerciseRouter)
+app.use('/exercise', ExerciseRouter)
+app.use('/comment', CommentRouter)
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
