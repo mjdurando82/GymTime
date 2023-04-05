@@ -26,7 +26,7 @@ const Workout = ({ user }) => {
       post: post,
       exercises: exercises
     }
-    await Client.post(`/workout/new`, workout)
+    await Client.post(`/api/workout/new`, workout)
     setWorkoutName('')
     setWorkoutDate(new Date())
     setExercises([])

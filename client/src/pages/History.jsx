@@ -19,7 +19,7 @@ const History = ({ user }) => {
   const [image, setImage] = useState()
 
     const getUserWorkouts = async () => {
-        const response = await Client.get(`/workout/user/${user.id}`)
+        const response = await Client.get(`/api/workout/user/${user.id}`)
         setWorkouts(response.data.workouts)
   }
 
