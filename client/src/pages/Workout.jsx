@@ -47,7 +47,6 @@ const Workout = ({ user }) => {
     setExerciseSets('')
     setExerciseReps('')
     setExerciseWeight('')
-    console.log(exercises)
   }
   
   const removeExercise = (index) => {
