@@ -19,7 +19,7 @@ const History = ({ user }) => {
   const [image, setImage] = useState()
 
     const getUserWorkouts = async () => {
-        const response = await Client.get(`http://localhost:3001/workout/user/${user.id}`)
+        const response = await Client.get(`/workout/user/${user.id}`)
         setWorkouts(response.data.workouts)
   }
 
@@ -68,7 +68,7 @@ const History = ({ user }) => {
 
 
   const deleteWorkout = async (e, workoutId) => {
-    const response = await Client.delete(`http://localhost:3001/workout/delete/${workoutId}`)
+    const response = await Client.delete(`/workout/delete/${workoutId}`)
     getUserWorkouts()
   }
   const updateWorkout = async (e, workoutId) => {
@@ -82,7 +82,7 @@ const History = ({ user }) => {
       post: post,
       exercises: exercises
     }
-        await Client.put(`http://localhost:3001/workout/update/${workoutId}`, updatedWorkout)
+        await Client.put(`/workout/update/${workoutId}`, updatedWorkout)
         getUserWorkouts()
         setEditWorkoutId(null)
         closeUpdate()

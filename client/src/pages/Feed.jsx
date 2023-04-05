@@ -22,7 +22,7 @@ const Feed = ({ user }) => {
   }
   
   const getPosts = async () => {
-    const response = await axios.get(`http://localhost:3001/workout/posts`)
+    const response = await axios.get(`/workout/posts`)
     const sorted = response.data.workouts.sort((a, b) => new Date(b.date) - new Date(a.date))
     setPosts(sorted)
   }
@@ -33,7 +33,7 @@ const Feed = ({ user }) => {
 
   const deleteComment = async (e, commentId) => {
     e.preventDefault()
-    await Client.delete(`http://localhost:3001/comment/delete/${commentId}`)
+    await Client.delete(`/comment/delete/${commentId}`)
     getPosts()
   }
 

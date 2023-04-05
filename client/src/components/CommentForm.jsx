@@ -21,7 +21,7 @@ const CommentForm = ({ user, post, getPosts }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await Client.post(
-      `http://localhost:3001/comment/new/${post._id}`,
+      `/comment/new/${post._id}`,
       formState
     )
     setFormState(initialState)

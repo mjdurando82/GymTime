@@ -9,7 +9,7 @@ const Home = ({ user }) => {
   const [username, setUsername] = useState()
 
   const getUserById = async () => {
-    const response = await axios.get(`http://localhost:3001/user/${user.id}`)
+    const response = await axios.get(`/user/${user.id}`)
     setUsername(response.data.user.username)
   }
 

@@ -18,7 +18,7 @@ const UpdateComment = ({ comment, closeForm, getPosts, setEditCommentId }) => {
   const handleUpdate = async (event) => {
     event.preventDefault()
     await Client.put(
-      `http://localhost:3001/comment/update/${comment._id}`,
+      `/comment/update/${comment._id}`,
       updateComment
     )
     getPosts()
