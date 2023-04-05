@@ -17,15 +17,16 @@ const History = ({ user }) => {
   const [post, setPost] = useState(true)
   const [notes, setNotes] = useState()
   const [image, setImage] = useState()
+  
 
     const getUserWorkouts = async () => {
         const response = await Client.get(`/api/workout/user/${user.id}`)
         setWorkouts(response.data.workouts)
   }
 
-    if (user) {
-      getUserWorkouts()
-    }
+  useEffect(() => {
+    getUserWorkouts()
+  }, [user])
 
 
   const toggleButtons = () => {
@@ -68,9 +69,10 @@ const History = ({ user }) => {
 
 
   const deleteWorkout = async (e, workoutId) => {
-    const response = await Client.delete(`/workout/delete/${workoutId}`)
-    getUserWorkouts()
+    e.preventDefault()
+    await Client.delete(`/api/workout/delete/${workoutId}`)
   }
+
   const updateWorkout = async (e, workoutId) => {
     e.preventDefault()
     const updatedWorkout = {
@@ -82,7 +84,7 @@ const History = ({ user }) => {
       post: post,
       exercises: exercises
     }
-        await Client.put(`/workout/update/${workoutId}`, updatedWorkout)
+        await Client.put(`/api/workout/update/${workoutId}`, updatedWorkout)
         getUserWorkouts()
         setEditWorkoutId(null)
         closeUpdate()

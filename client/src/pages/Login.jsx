@@ -62,7 +62,7 @@ const Login = ({ setUser }) => {
     <div className='bg-slate-400 min-h-screen pt-16'>
       <h1 className='text-5xl font-bold text-center mb-8'>STRENGTH</h1>
       <h5 className='text-xl font-bold text-center mb-2'>Workout Smarter</h5>
-      <img className='mx-auto mb-6 w-1/4' src={logo} />
+      <img className='mx-auto mb-6 w-1/4' src={logo} alt='logo'/>
 
     <div>
       <div>
