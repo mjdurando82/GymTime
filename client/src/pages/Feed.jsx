@@ -60,8 +60,8 @@ const Feed = ({ user }) => {
             {post?.comments?.map((comment) => (
               <div key={comment._id} className="flex items-start mb-4">
                 <div>
-                  <span className="font-medium mb-1">{comment.user.username}</span>
-                  <span className="text-gray-700"> -   {comment.content}</span>
+                  <span className="font-medium mb-1">{comment?.user?.username}</span>
+                  <span className="text-gray-700"> -   {comment?.content}</span>
                   {user?.id === comment?.user._id && (
                     <div className="mt-2">
                       <button className="bg-red-500 text-white py-1 px-1 rounded-md text-sm mr-2 hover:bg-rose-700 transition-all duration-300" onClick={(e) => deleteComment(e, comment._id)}>Delete</button>
