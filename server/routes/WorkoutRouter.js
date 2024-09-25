@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const controller = require('../controllers/WorkoutController')
-const middleware = require('../middleware')
+const middleware = require('../../../middleware')
 
 router.post(
   '/new',

@@ -1,14 +1,14 @@
 const cors = require('cors')
 const express = require('express')
 const logger = require('morgan')
-const routes = require('./routes')
-const AuthRouter = require('./routes/AuthRouter')
-const UserRouter = require('./routes/UserRouter')
-const WorkoutRouter = require('./routes/WorkoutRouter')
-const ExerciseRouter = require('./routes/ExerciseRouter')
-const CommentRouter = require('./routes/CommentRouter')
+const routes = require('../routes')
+const AuthRouter = require('../routes/AuthRouter')
+const UserRouter = require('../routes/UserRouter')
+const WorkoutRouter = require('../routes/WorkoutRouter')
+const ExerciseRouter = require('../routes/ExerciseRouter')
+const CommentRouter = require('../routes/CommentRouter')
 
-const db = require('./db')
+const db = require('../db')
 
 // require() imports and middleware here ^ ///////
 
