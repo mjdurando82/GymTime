@@ -1,24 +1,21 @@
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import axios from 'axios'
+import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+
+
 
 const Home = ({ user }) => {
-  const [username, setUsername] = useState('');
+
+  const [username, setUsername] = useState()
 
   const getUserById = async () => {
-    if (user && user.id) { // Check if user and user.id are defined
-      try {
-        const response = await axios.get(`/api/user/${user.id}`);
-        setUsername(response.data.user.username);
-      } catch (error) {
-        console.error('Error fetching user:', error);
-      }
-    }
-  };
+    const response = await axios.get(`/api/user/${user.id}`)
+    setUsername(response.data.user.username)
+  }
 
   useEffect(() => {
-    getUserById();
-  }, [user]); // Include user in dependency array
+    getUserById()
+  }, [])
 
   return (
     <div className='bg-slate-400 min-h-screen flex flex-col justify-center items-center bg-gray-100'>
@@ -29,9 +26,9 @@ const Home = ({ user }) => {
       />
       {username && (
         <h1 className='text-4xl md:text-5xl font-bold text-gray-800 mb-8'>
-          Welcome, {username}!
-        </h1>
-      )}
+        Welcome, {username}!
+      </h1>
+        )}
       <p className='text-xl md:text-2xl text-gray-600 mb-12'>
         Start tracking your workouts today
       </p>
