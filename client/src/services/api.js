@@ -1,7 +1,6 @@
 import Axios from 'axios'
 
-export const BASE_URL = 'https://strength-app.herokuapp.com'
-
+export const BASE_URL = 'https://strength-frontend.onrender.com'
 const Client = Axios.create({ baseURL: BASE_URL })
 
 Client.interceptors.request.use(
