@@ -20,7 +20,7 @@ const CommentForm = ({ user, post, getPosts }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await Client.post(
-      `/api/comment/new/${post._id}`,
+      `https://strength-2zfn.onrender.com/api/comment/new/${post._id}`,
       formState
     )
     setFormState(initialState)

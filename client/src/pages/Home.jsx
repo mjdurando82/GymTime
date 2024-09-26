@@ -9,7 +9,7 @@ const Home = ({ user }) => {
   const [username, setUsername] = useState()
 
   const getUserById = async () => {
-    const response = await axios.get(`/api/user/${user.id}`)
+    const response = await axios.get(`https://strength-2zfn.onrender.com/api/user/${user.id}`)
     setUsername(response.data.user.username)
   }
 

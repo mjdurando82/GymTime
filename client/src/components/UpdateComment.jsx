@@ -16,7 +16,7 @@ const UpdateComment = ({ comment, closeForm, getPosts, setEditCommentId }) => {
   const handleUpdate = async (event) => {
     event.preventDefault()
     await Client.put(
-      `/api/comment/update/${comment._id}`,
+      `https://strength-2zfn.onrender.com/api/comment/update/${comment._id}`,
       updateComment
     )
     getPosts()

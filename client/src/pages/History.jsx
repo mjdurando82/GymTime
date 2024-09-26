@@ -20,7 +20,7 @@ const History = ({ user }) => {
   
 
     const getUserWorkouts = async () => {
-        const response = await Client.get(`/api/workout/user/${user.id}`)
+        const response = await Client.get(`https://strength-2zfn.onrender.com/api/workout/user/${user.id}`)
         setWorkouts(response.data.workouts)
   }
 
